@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>Os Bichinhos Cantam | Música Infantil Brasileira</title>
-  <meta name="description" content="Os Bichinhos Cantam é um projeto brasileiro de música infantil com Edgar, João, Duda e Raquel. Canções lúdicas, mágicas e familiares para crianças." />
+  <meta name="description" content="Os Bichinhos Cantam é um projeto brasileiro de música infantil com Edgar, João, Duda e Raquel. Canções lúdicas, mágicas e familiares para crianças de 2 a 5 anos." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content="Os Bichinhos Cantam" />
-  <meta name="theme-color" content="#080c33" />
+  <meta name="theme-color" content="#07091f" />
+  <meta name="keywords" content="música infantil, música infantil brasileira, canções para crianças, Os Bichinhos Cantam, Edgar, João, Duda, Raquel, músicas para crianças de 2 a 5 anos" />
   <link rel="canonical" href="https://osbichinhoscantam.github.io/os-bichinhos-cantam/" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Os Bichinhos Cantam" />
@@ -18,6 +20,8 @@
   <meta property="og:description" content="Músicas infantis brasileiras com Edgar, João, Duda e Raquel. Um universo noturno, mágico e acolhedor para crianças e famílias." />
   <meta property="og:url" content="https://osbichinhoscantam.github.io/os-bichinhos-cantam/" />
   <meta property="og:image" content="https://osbichinhoscantam.github.io/os-bichinhos-cantam/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Os Bichinhos Cantam Vol. 1 com Edgar, João, Duda e Raquel em cenário noturno mágico." />
   <meta property="og:locale" content="pt_BR" />
 
@@ -26,7 +30,7 @@
   <meta name="twitter:description" content="Canções infantis lúdicas, mágicas e familiares para crianças." />
   <meta name="twitter:image" content="https://osbichinhoscantam.github.io/os-bichinhos-cantam/assets/og-image.jpg" />
 
-  <link rel="preload" as="image" href="assets/hero.jpg" />
+  <link rel="preload" as="image" href="assets/hero.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="styles.css" />
 
   <script type="application/ld+json">
@@ -34,19 +38,24 @@
     "@context": "https://schema.org",
     "@type": "MusicGroup",
     "name": "Os Bichinhos Cantam",
-    "description": "Projeto brasileiro de música infantil com canções lúdicas, mágicas, educativas e familiares para crianças.",
+    "description": "Projeto brasileiro de música infantil com canções lúdicas, mágicas, educativas e familiares para crianças de 2 a 5 anos.",
     "genre": ["Música infantil", "Children's music", "Música brasileira"],
     "url": "https://osbichinhoscantam.github.io/os-bichinhos-cantam/",
     "image": "https://osbichinhoscantam.github.io/os-bichinhos-cantam/assets/cover.jpg",
+    "inLanguage": "pt-BR",
     "sameAs": [
+      "https://open.spotify.com/artist/374HOBk3QG7FJRoDCOQnXE",
       "https://music.apple.com/us/artist/os-bichinhos-cantam/1895318699"
     ],
     "album": {
       "@type": "MusicAlbum",
       "name": "Os Bichinhos Cantam — Vol. 1",
+      "inLanguage": "pt-BR",
+      "image": "https://osbichinhoscantam.github.io/os-bichinhos-cantam/assets/cover.jpg",
       "byArtist": {
         "@type": "MusicGroup",
-        "name": "Os Bichinhos Cantam"
+        "name": "Os Bichinhos Cantam",
+        "url": "https://osbichinhoscantam.github.io/os-bichinhos-cantam/"
       }
     }
   }
@@ -58,9 +67,9 @@
 
   <header class="site-header">
     <nav class="nav" aria-label="Menu principal">
-      <a class="brand" href="./" aria-label="Página inicial">
-        <span class="brand-mark" aria-hidden="true">♪</span>
-        <span>Os Bichinhos Cantam</span>
+      <a class="brand" href="./" aria-label="Os Bichinhos Cantam — página inicial">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Os Bichinhos Cantam</span>
       </a>
       <div class="nav-links">
         <a href="#ouvir">Ouvir</a>
@@ -72,70 +81,105 @@
   </header>
 
   <main id="conteudo">
-    <section class="hero">
-      <div class="hero-bg" role="img" aria-label="Arte de Os Bichinhos Cantam com os personagens em um campo noturno estrelado."></div>
-      <div class="hero-overlay"></div>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" role="img" aria-label="Arte de Os Bichinhos Cantam Vol. 1 com Edgar, João, Duda e Raquel num campo noturno estrelado."></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
 
       <div class="hero-content">
         <p class="eyebrow">Música infantil brasileira</p>
-        <h1>Os Bichinhos Cantam</h1>
+        <h1 id="hero-title">Os Bichinhos Cantam</h1>
         <p class="subtitle">
-          Canções mágicas, lúdicas e familiares com Edgar, João, Duda e Raquel.
-          Um universo musical acolhedor para crianças.
+          Canções mágicas, lúdicas e familiares com Edgar, João, Duda e Raquel —
+          um universo musical acolhedor para crianças de 2 a 5 anos.
         </p>
 
         <div class="cta-row" id="ouvir" aria-label="Onde ouvir">
-          <a class="button primary" href="https://music.apple.com/us/artist/os-bichinhos-cantam/1895318699" target="_blank" rel="noopener">Ouvir no Apple Music</a>
-          <a class="button" href="#links">Ver links oficiais</a>
+          <a class="button primary" href="https://open.spotify.com/artist/374HOBk3QG7FJRoDCOQnXE" target="_blank" rel="noopener noreferrer">
+            <span class="button-icon" aria-hidden="true">▶</span>
+            Ouvir no Spotify
+          </a>
+          <a class="button" href="https://music.apple.com/us/artist/os-bichinhos-cantam/1895318699" target="_blank" rel="noopener noreferrer">Ouvir no Apple Music</a>
+          <a class="button ghost" href="#links">Ver todos os links</a>
         </div>
 
-        <p class="release-note">Vol. 1 • Edgar, João, Duda e Raquel</p>
+        <p class="release-note">Vol. 1 disponível agora · Edgar, João, Duda e Raquel</p>
       </div>
     </section>
 
-    <section class="section intro-panel" aria-label="Resumo do projeto">
-      <img src="assets/cover.jpg" alt="Capa de Os Bichinhos Cantam Vol. 1" loading="lazy" />
+    <section class="section intro-panel" aria-labelledby="intro-title">
+      <img src="assets/cover.jpg" alt="Capa de Os Bichinhos Cantam Vol. 1 com os quatro personagens em cenário noturno mágico." width="1200" height="1200" loading="lazy" decoding="async" />
       <div>
         <p class="eyebrow">Projeto musical infantil</p>
-        <h2>Um mundo de bichinhos, música e fantasia</h2>
+        <h2 id="intro-title">Um mundo de bichinhos, música e fantasia</h2>
         <p>
           Os Bichinhos Cantam é um projeto brasileiro de música infantil criado para
           aproximar crianças de personagens carinhosos, histórias simples e canções
           com atmosfera alegre, segura e familiar.
         </p>
+        <ul class="badge-list" aria-label="Características do projeto">
+          <li>Para crianças de 2 a 5 anos</li>
+          <li>Letras originais em português</li>
+          <li>Personagens autorais</li>
+        </ul>
       </div>
     </section>
 
     <section class="section" id="personagens" aria-labelledby="personagens-title">
       <div class="section-heading">
         <p class="eyebrow">Conheça a turma</p>
-        <h2 id="personagens-title">Personagens</h2>
+        <h2 id="personagens-title">Personagens do Vol. 1</h2>
+        <p class="section-lede">Quatro bichinhos, quatro personalidades, quatro canções para cantar junto.</p>
       </div>
 
       <div class="character-grid">
         <article class="character-card">
-          <img src="assets/edgar.jpg" alt="Edgar, gato Maine Coon cinza-prateado" loading="lazy" />
+          <img src="assets/edgar.jpg" alt="Edgar, gato Maine Coon cinza-prateado de peito branco-creme, com olhar orgulhoso." width="900" height="900" loading="lazy" decoding="async" />
           <h3>Edgar</h3>
-          <p>Gato Maine Coon cinza-prateado, elegante, expressivo e orgulhoso.</p>
+          <p>Gato Maine Coon cinza-prateado, elegante, expressivo e um pouquinho orgulhoso.</p>
         </article>
 
         <article class="character-card">
-          <img src="assets/joao.jpg" alt="João, cachorro grande, peludo e sonolento" loading="lazy" />
+          <img src="assets/joao.jpg" alt="João, cachorro grande peludo cinza, com expressão sonolenta e acolhedora." width="900" height="900" loading="lazy" decoding="async" />
           <h3>João</h3>
           <p>Cachorro grande, peludo e sonolento, com jeito calmo e acolhedor.</p>
         </article>
 
         <article class="character-card">
-          <img src="assets/duda.jpg" alt="Duda, tartaruga serena e gentil" loading="lazy" />
+          <img src="assets/duda.jpg" alt="Duda, tartaruga serena de pescoço longo e casco com manchas terracota." width="900" height="900" loading="lazy" decoding="async" />
           <h3>Duda</h3>
           <p>Tartaruga serena, delicada e gentil, com presença tranquila.</p>
         </article>
 
         <article class="character-card">
-          <img src="assets/raquel.jpg" alt="Raquel, raposa vermelha-alaranjada" loading="lazy" />
+          <img src="assets/raquel.jpg" alt="Raquel, raposa vermelho-alaranjada de cauda grande com ponta branca." width="900" height="900" loading="lazy" decoding="async" />
           <h3>Raquel</h3>
-          <p>Raposa vermelha-alaranjada, tímida, esperta e cheia de encanto.</p>
+          <p>Raposa vermelho-alaranjada, tímida, esperta e cheia de encanto.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="section family" aria-labelledby="family-title">
+      <div class="family-content">
+        <p class="eyebrow">Para famílias</p>
+        <h2 id="family-title">Música pensada para crianças de 2 a 5 anos</h2>
+        <p>
+          Letras simples, melodias memoráveis e um universo visual seguro e mágico —
+          ideal para escutar no carro, antes de dormir ou em qualquer momento de afeto entre pais, filhos e avós.
+        </p>
+      </div>
+      <div class="family-stats" aria-label="Destaques do Vol. 1">
+        <div class="stat">
+          <span class="stat-num">04</span>
+          <span class="stat-label">Personagens</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">04</span>
+          <span class="stat-label">Canções no Vol. 1</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">2–5</span>
+          <span class="stat-label">Anos</span>
+        </div>
       </div>
     </section>
 
@@ -147,47 +191,57 @@
       <p>
         O projeto combina canções infantis brasileiras com uma estética noturna,
         mágica e cinematográfica. A proposta é criar um universo reconhecível,
-        centrado nos quatro personagens principais e em histórias musicais para
-        crianças e famílias.
+        centrado em quatro personagens principais e em pequenas histórias musicais
+        para crianças e famílias.
       </p>
     </section>
 
     <section class="section visual-strip" aria-label="Arte panorâmica do projeto">
-      <img src="assets/banner-wide.jpg" alt="Banner panorâmico de Os Bichinhos Cantam" loading="lazy" />
+      <img src="assets/banner-wide.jpg" alt="Banner panorâmico de Os Bichinhos Cantam Vol. 1, com os quatro personagens em um campo noturno estrelado." width="1600" height="436" loading="lazy" decoding="async" />
     </section>
 
     <section class="section links" id="links" aria-labelledby="links-title">
       <div class="section-heading">
         <p class="eyebrow">Links oficiais</p>
         <h2 id="links-title">Ouça e acompanhe</h2>
+        <p class="section-lede">Disponível nas principais plataformas de música e redes sociais.</p>
       </div>
 
       <div class="link-list">
-        <a href="https://music.apple.com/us/artist/os-bichinhos-cantam/1895318699" target="_blank" rel="noopener">
-          <span>Apple Music</span>
+        <a class="link-card link-spotify" href="https://open.spotify.com/artist/374HOBk3QG7FJRoDCOQnXE" target="_blank" rel="noopener noreferrer" aria-label="Ouvir Os Bichinhos Cantam no Spotify (abre em nova aba)">
+          <span class="link-platform">Spotify</span>
+          <span class="link-action">Ouvir agora →</span>
         </a>
-        <a href="#" aria-disabled="true">
-          <span>Spotify</span>
-          <small>Adicionar quando o perfil liberar</small>
+        <a class="link-card" href="https://music.apple.com/us/artist/os-bichinhos-cantam/1895318699" target="_blank" rel="noopener noreferrer" aria-label="Ouvir Os Bichinhos Cantam no Apple Music (abre em nova aba)">
+          <span class="link-platform">Apple Music</span>
+          <span class="link-action">Ouvir agora →</span>
         </a>
-        <a href="https://youtube.com/@osbichinhoscantam" target="_blank" rel="noopener">
-          <span>YouTube</span>
+        <a class="link-card" href="https://youtube.com/@osbichinhoscantam" target="_blank" rel="noopener noreferrer" aria-label="Canal de Os Bichinhos Cantam no YouTube (abre em nova aba)">
+          <span class="link-platform">YouTube</span>
+          <span class="link-action">Ver vídeos →</span>
         </a>
-        <a href="https://www.tiktok.com/@os.bichinhos.cantam" target="_blank" rel="noopener">
-          <span>TikTok</span>
+        <a class="link-card" href="https://www.instagram.com/osbichinhoscantam" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Os Bichinhos Cantam (abre em nova aba)">
+          <span class="link-platform">Instagram</span>
+          <span class="link-action">Seguir →</span>
         </a>
-        <a href="http://kwai.com/@osbichinhoscantam" target="_blank" rel="noopener">
-          <span>Kwai</span>
+        <a class="link-card" href="https://www.tiktok.com/@os.bichinhos.cantam" target="_blank" rel="noopener noreferrer" aria-label="TikTok de Os Bichinhos Cantam (abre em nova aba)">
+          <span class="link-platform">TikTok</span>
+          <span class="link-action">Seguir →</span>
         </a>
-        <a href="https://www.instagram.com/osbichinhoscantam" target="_blank" rel="noopener">
-          <span>Instagram</span>
+        <a class="link-card" href="https://kwai.com/@osbichinhoscantam" target="_blank" rel="noopener noreferrer" aria-label="Kwai de Os Bichinhos Cantam (abre em nova aba)">
+          <span class="link-platform">Kwai</span>
+          <span class="link-action">Seguir →</span>
         </a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© <span id="ano"></span> Os Bichinhos Cantam. Música infantil brasileira.</p>
+    <div class="footer-inner">
+      <p class="footer-brand">Os Bichinhos Cantam</p>
+      <p class="footer-tag">Música infantil brasileira · Vol. 1</p>
+      <p class="footer-copy">© <span id="ano"></span> Os Bichinhos Cantam. Todos os direitos reservados.</p>
+    </div>
   </footer>
 
   <script>
