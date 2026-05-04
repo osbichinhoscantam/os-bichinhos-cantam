@@ -1,6 +1,6 @@
 # Os Bichinhos Cantam — Site oficial
 
-Landing estática do projeto brasileiro de música infantil **Os Bichinhos Cantam**, com Edgar, João, Duda e Raquel.
+Landing estática do projeto brasileiro de música infantil **Os Bichinhos Cantam**, com Edgar, João, Duda e Raquel. Estado atual: pré-lançamento do Vol. 1 em 12/05/2026.
 
 - **URL oficial:** https://osbichinhoscantam.github.io/os-bichinhos-cantam/
 - **Hospedagem:** GitHub Pages (estático, sem backend)
@@ -88,7 +88,9 @@ Cada `git push` para `main` republica o site automaticamente em ~1 minuto.
 - [ ] Imagens sem distorção e com `alt` descritivo em PT-BR.
 - [ ] Links externos com `target="_blank" rel="noopener noreferrer"`.
 - [ ] Site abre corretamente no celular (testar 360px e 390px).
-- [ ] Link principal leva para o Spotify Artist correto.
+- [ ] Em pré-lançamento, não usar “já no ar”, “ouvir agora” ou links de faixa como se o EP já estivesse disponível.
+- [ ] Link principal de pré-lançamento leva para o HyperFollow/pré-save correto.
+- [ ] Links Spotify/Apple em pré-lançamento levam para páginas de artista, não para botões “ouvir agora”.
 
 ## Segurança — repositório público
 
