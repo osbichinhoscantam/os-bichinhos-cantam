@@ -275,10 +275,10 @@ h3 {
   inset: 0;
   background-image: url("assets/hero.jpg");
   background-size: cover;
-  /* Desktop: âncora mais próxima do centro que o canto direito evita arte colada na borda. */
-  background-position: 62% 100%;
+  /* Zoom no canto inferior-direito: corta título gravado na imagem; foco em personagens. */
+  background-position: 88% 100%;
   transform: scale(1.55);
-  transform-origin: 62% 100%;
+  transform-origin: 88% 100%;
   z-index: -3;
 }
 
@@ -304,6 +304,8 @@ h3 {
 .hero-content {
   min-height: clamp(560px, 78vh, 760px);
   max-width: 640px;
+  flex: 0 1 640px;
+  min-width: 0;
   padding: clamp(32px, 6vw, 72px);
   display: flex;
   flex-direction: column;
@@ -312,16 +314,20 @@ h3 {
 
 .hero-layout {
   min-height: clamp(560px, 78vh, 760px);
-  display: grid;
-  grid-template-columns: minmax(320px, 1fr) minmax(220px, 320px);
-  gap: clamp(12px, 2vw, 22px);
-  align-items: start;
+  /* Flex mantém texto + capa lado a lado sem “vácuo” de 1fr entre blocos */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: clamp(16px, 3vw, 28px);
 }
 
 .hero-cover-card {
   margin: clamp(34px, 5vw, 58px) 0 0;
-  justify-self: start;
-  align-self: start;
+  flex: 0 0 auto;
+  width: clamp(216px, 26vw, 340px);
+  max-width: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--line);
@@ -1328,7 +1334,7 @@ h3 {
   }
 
   .hero-layout {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 0;
   }
   .hero-cover-card {
