@@ -173,15 +173,15 @@
         </p>
 
         <div class="cta-row" id="ouvir" aria-label="Pré-save e páginas oficiais">
-          <a class="button primary" href="https://distrokid.com/hyperfollow/osbichinhoscantam/os-bichinhos-cantam--vol-1-2" target="_blank" rel="noopener noreferrer">
+          <a class="button button-presave" href="https://distrokid.com/hyperfollow/osbichinhoscantam/os-bichinhos-cantam--vol-1-2" target="_blank" rel="noopener noreferrer">
             <svg class="btn-svg" aria-hidden="true" focusable="false"><use href="#i-headphones"/></svg>
             Pré-save Vol. 1
           </a>
-          <a class="button" href="https://open.spotify.com/artist/374HOBk3QG7FJRoDCOQnXE" target="_blank" rel="noopener noreferrer">
+          <a class="button primary button-spotify" href="https://open.spotify.com/artist/374HOBk3QG7FJRoDCOQnXE" target="_blank" rel="noopener noreferrer">
             <svg class="btn-svg" aria-hidden="true" focusable="false"><use href="#i-spotify"/></svg>
             Página Spotify
           </a>
-          <a class="button" href="https://music.apple.com/us/artist/os-bichinhos-cantam/1895318699" target="_blank" rel="noopener noreferrer">
+          <a class="button button-apple" href="https://music.apple.com/us/artist/os-bichinhos-cantam/1895318699" target="_blank" rel="noopener noreferrer">
             <svg class="btn-svg" aria-hidden="true" focusable="false"><use href="#i-apple"/></svg>
             Página Apple Music
           </a>
@@ -398,16 +398,25 @@
       </div>
       <div class="family-stats" aria-label="Destaques da turma">
         <div class="stat">
-          <span class="stat-num">04</span>
-          <span class="stat-label">No Vol. 1</span>
+          <span class="stat-icon" aria-hidden="true"><svg><use href="#i-headphones"/></svg></span>
+          <span class="stat-body">
+            <span class="stat-kicker">Vol. 1</span>
+            <span class="stat-label">4 faixas inéditas</span>
+          </span>
         </div>
         <div class="stat">
-          <span class="stat-num">13</span>
-          <span class="stat-label">Bichinhos</span>
+          <span class="stat-icon" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+          <span class="stat-body">
+            <span class="stat-kicker">Turma completa</span>
+            <span class="stat-label">13 bichinhos autorais</span>
+          </span>
         </div>
         <div class="stat">
-          <span class="stat-num">2-5</span>
-          <span class="stat-label">Anos</span>
+          <span class="stat-icon" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+          <span class="stat-body">
+            <span class="stat-kicker">Idade ideal</span>
+            <span class="stat-label">Crianças de 2 a 5 anos</span>
+          </span>
         </div>
       </div>
     </section>
@@ -541,7 +550,7 @@
             '<p class="countdown-live-msg">Vol. 1 chegou em 12 de maio de 2026</p>' +
             '<p class="countdown-foot">12 de maio de 2026</p>';
           // Atualiza CTA primário do hero após a data de lançamento
-          var primary = document.querySelector(".cta-row .button.primary");
+          var primary = document.querySelector(".cta-row .button-presave");
           if (primary) {
             primary.href = "https://open.spotify.com/album/5BwYFYnPTp36nmYzoU1MBh";
             primary.innerHTML = '<svg class="btn-svg" aria-hidden="true" focusable="false"><use href="#i-spotify"/></svg>Abrir no Spotify';
