@@ -137,6 +137,10 @@
       <symbol id="i-arrow" viewBox="0 0 24 24">
         <path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7"/>
       </symbol>
+      <!-- Lua crescente — marca no header (noite / “cantam sob as estrelas”) -->
+      <symbol id="i-moon-brand" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </symbol>
     </defs>
   </svg>
 </head>
@@ -147,7 +151,11 @@
   <header class="site-header">
     <nav class="nav" aria-label="Menu principal">
       <a class="brand" href="./" aria-label="Os Bichinhos Cantam — página inicial">
-        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-mark" aria-hidden="true">
+          <svg class="brand-mark-moon" width="28" height="28" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+            <use href="#i-moon-brand"/>
+          </svg>
+        </span>
         <span class="brand-name">Os Bichinhos Cantam</span>
       </a>
       <div class="nav-links">

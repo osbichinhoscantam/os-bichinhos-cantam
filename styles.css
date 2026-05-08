@@ -138,41 +138,26 @@ img {
 }
 
 .brand-mark {
-  width: 34px;
-  height: 30px;
-  display: inline-block;
-  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
 }
 
-.brand-mark::before {
-  content: "";
-  position: absolute;
-  left: 8px;
-  bottom: 1px;
-  width: 18px;
-  height: 14px;
-  border-radius: 58% 58% 48% 48%;
-  background: linear-gradient(145deg, #ffe6a4 0%, var(--moon-gold) 52%, var(--cta-orange) 100%);
-  box-shadow:
-    0 0 18px rgba(255, 211, 106, 0.4),
-    inset -2px -3px 8px rgba(160, 80, 0, 0.24);
+.brand-mark-moon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  color: var(--moon-gold);
+  fill: currentColor;
+  filter: drop-shadow(0 0 10px rgba(255, 211, 106, 0.42));
 }
 
-.brand-mark::after {
-  content: "";
-  position: absolute;
-  top: 1px;
-  left: 3px;
-  width: 7px;
-  height: 9px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #ffe6a4 0%, var(--moon-gold) 50%, var(--cta-orange) 100%);
-  box-shadow:
-    9px -1px 0 0 rgba(255, 197, 85, 0.98),
-    18px 0 0 0 rgba(255, 197, 85, 0.98),
-    25px 3px 0 0 rgba(255, 197, 85, 0.98),
-    0 0 12px rgba(255, 211, 106, 0.34);
+.brand:hover .brand-mark-moon {
+  color: #ffe9a8;
+  filter: drop-shadow(0 0 12px rgba(255, 211, 106, 0.55));
 }
 
 .nav-links {
@@ -402,20 +387,59 @@ h3 {
     0 18px 38px rgba(0, 0, 0, 0.36);
 }
 
+/* Alinhado aos .char-listen dos cards: dourado em repouso → verde Spotify no hover */
 .button-presave {
-  background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
-  color: #fff;
-  border: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0) 50%),
+    linear-gradient(160deg, #ffe566 0%, var(--moon-gold) 40%, var(--cta-orange) 100%);
+  color: var(--ink);
+  border: 1px solid rgba(255, 210, 80, 0.55);
   box-shadow:
-    0 0 10px rgba(30, 215, 96, 0.32),
-    0 10px 24px rgba(0, 0, 0, 0.28);
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.12) inset,
+    0 8px 20px rgba(10, 8, 20, 0.48),
+    0 0 0 1px rgba(255, 200, 80, 0.2);
+  transition:
+    transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    filter 180ms ease;
 }
 
 .button-presave:hover {
+  filter: none;
   background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
+  color: #fff;
+  border-color: transparent;
   box-shadow:
     0 0 14px rgba(30, 215, 96, 0.4),
     0 12px 28px rgba(0, 0, 0, 0.32);
+}
+
+.button-presave:focus-visible {
+  outline: none;
+  background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
+  color: #fff;
+  border-color: transparent;
+  box-shadow:
+    0 0 14px rgba(30, 215, 96, 0.45),
+    0 12px 28px rgba(0, 0, 0, 0.32),
+    0 0 0 3px rgba(255, 211, 106, 0.45);
+}
+
+.cta-row .button-presave .btn-svg {
+  opacity: 0.75;
+}
+
+.cta-row .button-presave:hover .btn-svg,
+.cta-row .button-presave:focus-visible .btn-svg {
+  opacity: 1;
 }
 
 .button-apple {
@@ -1082,27 +1106,39 @@ main#conteudo > section#personagens.section + section.family {
   transition:
     transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
     box-shadow 200ms ease,
-    filter 200ms ease;
+    filter 200ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
   margin-top: 6px;
 }
 
+/* Hover: mesma língua visual do .button-presave no hero (Spotify) */
 #personagens .character-card-live .char-listen:hover {
   transform: translateY(-2px);
-  filter: brightness(1.06);
+  filter: none;
+  background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
+  color: #fff;
+  border-color: transparent;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.55) inset,
-    0 -1px 0 rgba(0, 0, 0, 0.12) inset,
-    0 12px 28px rgba(10, 8, 20, 0.52),
-    0 0 0 2px rgba(255, 211, 106, 0.32);
+    0 0 14px rgba(30, 215, 96, 0.4),
+    0 12px 28px rgba(0, 0, 0, 0.32);
+}
+
+#personagens .character-card-live .char-listen:hover .char-listen-icon {
+  opacity: 1;
 }
 
 #personagens .character-card-live .char-listen:focus-visible {
   outline: none;
   transform: translateY(-1px);
+  background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
+  color: #fff;
+  border-color: transparent;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.5) inset,
-    0 10px 24px rgba(10, 8, 20, 0.48),
-    0 0 0 3px rgba(255, 211, 106, 0.5);
+    0 0 14px rgba(30, 215, 96, 0.45),
+    0 12px 28px rgba(0, 0, 0, 0.32),
+    0 0 0 3px rgba(255, 211, 106, 0.45);
 }
 
 .char-listen .char-listen-icon {
@@ -1580,9 +1616,12 @@ main#conteudo > section#personagens.section + section.family {
   #personagens .character-card-live .char-listen:hover,
   #personagens .character-card-live .char-listen:focus-visible {
     transform: none;
-    filter: brightness(1.05);
+    filter: none;
+    background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
+    color: #fff;
+    border-color: transparent;
     box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.35) inset,
-      0 10px 24px rgba(10, 8, 20, 0.45);
+      0 0 14px rgba(30, 215, 96, 0.4),
+      0 12px 28px rgba(0, 0, 0, 0.32);
   }
 }
