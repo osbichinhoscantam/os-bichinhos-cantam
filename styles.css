@@ -38,7 +38,7 @@
   --container: 1160px;
   --container-pad: clamp(20px, 4vw, 32px);
   /* Mesma faixa que sob o hero: ar entre cartões .section empilhados */
-  --section-stack-gap: clamp(28px, 5vw, 44px);
+  --section-stack-gap: clamp(18px, 3.5vw, 30px);
 }
 
 * { box-sizing: border-box; }
@@ -333,6 +333,8 @@ h3 {
   width: clamp(200px, 24vw, 320px);
   min-width: 0;
   max-width: 100%;
+  /* Sobe um pouco em relação ao centro vertical do hero (alinha melhor com o bloco do título) */
+  transform: translateY(-clamp(14px, 2.2vw, 28px));
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--line);
@@ -405,17 +407,15 @@ h3 {
   color: #fff;
   border: 0;
   box-shadow:
-    0 0 22px rgba(30, 215, 96, 0.44),
-    0 0 38px rgba(29, 185, 84, 0.36),
-    0 14px 32px rgba(0, 0, 0, 0.3);
+    0 0 10px rgba(30, 215, 96, 0.32),
+    0 10px 24px rgba(0, 0, 0, 0.28);
 }
 
 .button-presave:hover {
   background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
   box-shadow:
-    0 0 30px rgba(30, 215, 96, 0.56),
-    0 0 50px rgba(29, 185, 84, 0.42),
-    0 18px 38px rgba(0, 0, 0, 0.36);
+    0 0 14px rgba(30, 215, 96, 0.4),
+    0 12px 28px rgba(0, 0, 0, 0.32);
 }
 
 .button-apple {
@@ -600,7 +600,7 @@ h3 {
    Sections
    ========================================================= */
 .section {
-  padding: clamp(40px, 6vw, 64px) 0;
+  padding: clamp(28px, 5vw, 52px) 0;
 }
 
 /* Painéis com borda ficavam encostados (padding interno só);
@@ -609,10 +609,19 @@ main#conteudo > section.section + section.section {
   margin-top: var(--section-stack-gap);
 }
 
+/* Menos ar entre intro e personagens (evita “vácuo” grande antes de Conheça a turma) */
+main#conteudo > section.intro-panel + section#personagens {
+  margin-top: clamp(8px, 1.6vw, 14px);
+}
+
+/* Personagens → família: o bloco de teasers + CTA deixa a secção longa; fecha o vão */
+main#conteudo > section#personagens.section + section.family {
+  margin-top: clamp(12px, 2.5vw, 22px);
+}
+
 .intro-panel,
 .about,
 .links,
-.audio-previews,
 .family {
   background: linear-gradient(145deg,
     rgba(255, 244, 212, 0.10) 0%,
@@ -622,151 +631,6 @@ main#conteudo > section.section + section.section {
   box-shadow: var(--shadow-md);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-}
-
-/* Audio previews */
-.audio-previews {
-  padding: clamp(24px, 4vw, 40px);
-}
-
-.preview-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.preview-card {
-  background: linear-gradient(180deg,
-    rgba(255, 244, 212, 0.14) 0%,
-    rgba(255, 244, 212, 0.05) 100%);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 14px 14px 12px;
-  box-shadow: var(--shadow-sm);
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-
-.preview-card:hover,
-.preview-card:focus-within {
-  transform: translateY(-2px);
-  border-color: var(--line-strong);
-  box-shadow: var(--shadow-md);
-}
-
-.preview-card-head {
-  display: grid;
-  grid-template-columns: 76px 1fr;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.preview-card-head img {
-  width: 76px;
-  height: 76px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-sm);
-}
-
-.preview-meta {
-  min-width: 0;
-}
-
-.preview-badge {
-  margin: 0 0 6px;
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 0.64rem;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink);
-  background: linear-gradient(135deg, var(--moon-gold), var(--cta-orange));
-}
-
-.preview-card h3 {
-  font-size: 1rem;
-  margin: 0 0 4px;
-  line-height: 1.25;
-  text-wrap: balance;
-}
-
-.preview-copy {
-  margin: 0;
-  font-size: 0.82rem;
-  color: var(--muted);
-  font-weight: 700;
-}
-
-.preview-player {
-  display: flex;
-  align-items: center;
-}
-
-.preview-toggle {
-  border: 1px solid rgba(30, 215, 96, 0.45);
-  background: rgba(30, 215, 96, 0.14);
-  color: #d7ffe7;
-  border-radius: 999px;
-  min-height: 40px;
-  padding: 0 14px 0 12px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 800;
-  font-size: 0.86rem;
-  cursor: pointer;
-  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
-}
-
-.preview-toggle:hover,
-.preview-toggle:focus-visible {
-  transform: translateY(-1px);
-  background: rgba(30, 215, 96, 0.24);
-  box-shadow: 0 0 18px rgba(30, 215, 96, 0.34);
-}
-
-.preview-toggle-icon {
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  position: relative;
-}
-
-.preview-toggle-icon::before {
-  content: "";
-  position: absolute;
-  left: 3px;
-  top: 1px;
-  width: 0;
-  height: 0;
-  border-top: 7px solid transparent;
-  border-bottom: 7px solid transparent;
-  border-left: 10px solid currentColor;
-}
-
-.preview-card.is-playing .preview-toggle {
-  background: rgba(30, 215, 96, 0.28);
-}
-
-.preview-card.is-playing .preview-toggle-icon::before {
-  left: 2px;
-  top: 2px;
-  width: 11px;
-  height: 12px;
-  border: 0;
-  background:
-    linear-gradient(90deg, currentColor 0 4px, transparent 4px 7px, currentColor 7px 11px);
-}
-
-.audio-preview-cta {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
 }
 
 /* Intro */
@@ -816,7 +680,7 @@ main#conteudo > section.section + section.section {
 
 /* Personagens — agrupamento Vol. 1 vs teasers */
 .cast-group {
-  margin-bottom: clamp(36px, 5vw, 56px);
+  margin-bottom: clamp(22px, 3.5vw, 40px);
 }
 .cast-group:last-child { margin-bottom: 0; }
 
@@ -957,6 +821,225 @@ main#conteudo > section.section + section.section {
   color: var(--warm-cream);
 }
 
+.character-card-head {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-bottom: 4px;
+  min-width: 0;
+}
+
+.character-card-live .character-card-head h4 {
+  margin-bottom: 0;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+/*
+  Prévia: estilo ghost/outline (secundário ao pré-save), cor alinhada ao “estúdio”
+  de cada Vol. 1 — regras específicas por classe; nada de verde Spotify genérico.
+*/
+#personagens .character-card-live .preview-toggle {
+  border-radius: 999px;
+  min-height: 36px;
+  width: auto;
+  max-width: 100%;
+  padding: 6px 11px 6px 9px;
+  gap: 7px;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+#personagens .character-card-live .preview-toggle .char-preview-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+/* Edgar — slate / luz fria do radial do card */
+#personagens .character-card-live--edgar .preview-toggle {
+  border: 1px solid rgba(160, 172, 205, 0.45);
+  background: rgba(16, 18, 42, 0.45);
+  color: rgba(224, 228, 246, 0.96);
+}
+#personagens .character-card-live--edgar .preview-toggle .char-preview-label {
+  color: rgba(206, 212, 238, 0.95);
+}
+#personagens .character-card-live--edgar .preview-toggle:hover,
+#personagens .character-card-live--edgar .preview-toggle:focus-visible {
+  background: rgba(150, 162, 190, 0.18);
+  border-color: rgba(180, 192, 218, 0.65);
+  color: var(--warm-cream);
+}
+#personagens .character-card-live--edgar.is-playing .preview-toggle {
+  background: linear-gradient(135deg, rgba(155, 168, 198, 0.35) 0%, rgba(36, 42, 58, 0.92) 100%);
+  border-color: rgba(188, 198, 226, 0.7);
+  box-shadow: 0 0 0 1px rgba(150, 162, 188, 0.2), 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+#personagens .character-card-live--edgar.is-playing .preview-toggle .char-preview-label {
+  color: var(--warm-cream);
+}
+
+/* João — cinza-acolhedor */
+#personagens .character-card-live--joao .preview-toggle {
+  border: 1px solid rgba(135, 126, 138, 0.48);
+  background: rgba(16, 18, 42, 0.45);
+  color: rgba(232, 226, 236, 0.96);
+}
+#personagens .character-card-live--joao .preview-toggle .char-preview-label {
+  color: rgba(210, 204, 214, 0.95);
+}
+#personagens .character-card-live--joao .preview-toggle:hover,
+#personagens .character-card-live--joao .preview-toggle:focus-visible {
+  background: rgba(125, 118, 132, 0.2);
+  border-color: rgba(158, 148, 162, 0.65);
+  color: var(--warm-cream);
+}
+#personagens .character-card-live--joao.is-playing .preview-toggle {
+  background: linear-gradient(135deg, rgba(128, 118, 132, 0.32) 0%, rgba(42, 38, 48, 0.92) 100%);
+  border-color: rgba(168, 156, 172, 0.68);
+  box-shadow: 0 0 0 1px rgba(125, 118, 128, 0.22), 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+#personagens .character-card-live--joao.is-playing .preview-toggle .char-preview-label {
+  color: var(--warm-cream);
+}
+
+/* Duda — verde sálvia (estúdio) */
+#personagens .character-card-live--duda .preview-toggle {
+  border: 1px solid rgba(110, 148, 118, 0.5);
+  background: rgba(12, 26, 22, 0.5);
+  color: rgba(210, 238, 218, 0.96);
+}
+#personagens .character-card-live--duda .preview-toggle .char-preview-label {
+  color: rgba(190, 226, 204, 0.95);
+}
+#personagens .character-card-live--duda .preview-toggle:hover,
+#personagens .character-card-live--duda .preview-toggle:focus-visible {
+  background: rgba(100, 148, 112, 0.22);
+  border-color: rgba(130, 175, 138, 0.65);
+  color: var(--warm-cream);
+}
+#personagens .character-card-live--duda.is-playing .preview-toggle {
+  background: linear-gradient(135deg, rgba(108, 148, 118, 0.36) 0%, rgba(26, 52, 38, 0.92) 100%);
+  border-color: rgba(140, 182, 148, 0.72);
+  box-shadow: 0 0 0 1px rgba(118, 152, 118, 0.25), 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+#personagens .character-card-live--duda.is-playing .preview-toggle .char-preview-label {
+  color: var(--warm-cream);
+}
+
+/* Raquel — terracota / luz quente */
+#personagens .character-card-live--raquel .preview-toggle {
+  border: 1px solid rgba(205, 124, 92, 0.5);
+  background: rgba(30, 18, 22, 0.5);
+  color: rgba(255, 226, 212, 0.96);
+}
+#personagens .character-card-live--raquel .preview-toggle .char-preview-label {
+  color: rgba(246, 206, 188, 0.95);
+}
+#personagens .character-card-live--raquel .preview-toggle:hover,
+#personagens .character-card-live--raquel .preview-toggle:focus-visible {
+  background: rgba(195, 115, 85, 0.22);
+  border-color: rgba(220, 138, 102, 0.68);
+  color: var(--warm-cream);
+}
+#personagens .character-card-live--raquel.is-playing .preview-toggle {
+  background: linear-gradient(135deg, rgba(205, 120, 88, 0.34) 0%, rgba(62, 36, 32, 0.92) 100%);
+  border-color: rgba(228, 145, 110, 0.72);
+  box-shadow: 0 0 0 1px rgba(200, 118, 82, 0.28), 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+#personagens .character-card-live--raquel.is-playing .preview-toggle .char-preview-label {
+  color: var(--warm-cream);
+}
+
+#personagens .character-card-live .preview-toggle-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+  flex-shrink: 0;
+}
+
+#personagens .character-card-live .preview-toggle-icon::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 1px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 10px solid currentColor;
+}
+
+#personagens .character-card-live.is-playing .preview-toggle-icon::before {
+  left: 2px;
+  top: 2px;
+  width: 11px;
+  height: 12px;
+  border: 0;
+  background:
+    linear-gradient(90deg, currentColor 0 4px, transparent 4px 7px, currentColor 7px 11px);
+}
+
+.character-card-live {
+  transition:
+    background 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.character-card-live:hover,
+.character-card-live:focus-within {
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-md), 0 0 36px rgba(255, 211, 106, 0.22);
+  transform: translateY(-3px);
+}
+
+.character-card-live--edgar:hover,
+.character-card-live--edgar:focus-within {
+  background:
+    radial-gradient(ellipse 95% 78% at 72% 18%, rgba(150, 160, 188, 0.62) 0%, transparent 52%),
+    linear-gradient(165deg, rgba(52, 56, 72, 0.92) 0%, rgba(12, 14, 38, 0.78) 100%);
+}
+
+.character-card-live--joao:hover,
+.character-card-live--joao:focus-within {
+  background:
+    radial-gradient(ellipse 95% 78% at 70% 22%, rgba(125, 118, 128, 0.58) 0%, transparent 54%),
+    linear-gradient(165deg, rgba(78, 74, 86, 0.9) 0%, rgba(12, 14, 38, 0.76) 100%);
+}
+
+.character-card-live--duda:hover,
+.character-card-live--duda:focus-within {
+  background:
+    radial-gradient(ellipse 95% 78% at 68% 24%, rgba(118, 152, 118, 0.56) 0%, transparent 52%),
+    linear-gradient(165deg, rgba(48, 78, 58, 0.9) 0%, rgba(12, 14, 38, 0.76) 100%);
+}
+
+.character-card-live--raquel:hover,
+.character-card-live--raquel:focus-within {
+  background:
+    radial-gradient(ellipse 95% 78% at 70% 20%, rgba(200, 118, 82, 0.55) 0%, transparent 50%),
+    linear-gradient(165deg, rgba(98, 58, 48, 0.88) 0%, rgba(12, 14, 38, 0.76) 100%);
+}
+
 .character-card p {
   font-size: 0.95rem;
   margin: 0;
@@ -966,31 +1049,67 @@ main#conteudo > section.section + section.section {
   margin-bottom: 12px !important;
 }
 
-.char-listen {
+/* Pré-save: CTA primário tipo “elevated pill” — sólido, foco legível; sem pulse infinito */
+#personagens .character-card-live .char-listen {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 14px;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 11px 18px;
   border-radius: 999px;
-  background: rgba(255, 211, 106, 0.14);
-  border: 1px solid rgba(255, 211, 106, 0.32);
-  color: var(--moon-gold);
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 0.86rem;
-  letter-spacing: -0.005em;
-  transition: background 200ms ease, transform 200ms ease, color 200ms ease;
-  margin-top: 4px;
-}
-.char-listen:hover,
-.char-listen:focus-visible {
-  background: linear-gradient(135deg, var(--moon-gold), var(--cta-orange));
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0) 50%),
+    linear-gradient(160deg, #ffe566 0%, var(--moon-gold) 40%, var(--cta-orange) 100%);
+  border: 1px solid rgba(255, 210, 80, 0.55);
   color: var(--ink);
-  transform: translateY(-1px);
+  text-decoration: none;
+  font-family: inherit;
+  font-weight: 900;
+  font-size: 0.79rem;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.12) inset,
+    0 8px 20px rgba(10, 8, 20, 0.48),
+    0 0 0 1px rgba(255, 200, 80, 0.2);
+  transition:
+    transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 200ms ease,
+    filter 200ms ease;
+  margin-top: 6px;
 }
-.char-listen .btn-svg {
-  width: 14px;
-  height: 14px;
+
+#personagens .character-card-live .char-listen:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.12) inset,
+    0 12px 28px rgba(10, 8, 20, 0.52),
+    0 0 0 2px rgba(255, 211, 106, 0.32);
+}
+
+#personagens .character-card-live .char-listen:focus-visible {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 10px 24px rgba(10, 8, 20, 0.48),
+    0 0 0 3px rgba(255, 211, 106, 0.5);
+}
+
+.char-listen .char-listen-icon {
+  width: 15px;
+  height: 15px;
+  opacity: 0.75;
+  flex-shrink: 0;
 }
 
 /* Family */
@@ -1111,8 +1230,7 @@ main#conteudo > section.section + section.section {
 /* Visual strip — banner-wide */
 .visual-strip {
   padding: 0;
-  /* margin-vertical: topo vem do main > .section + .section; só bottom aqui */
-  margin: 0 0 clamp(28px, 4vw, 40px);
+  margin: 0;
 }
 .visual-strip img {
   width: 100%;
@@ -1355,7 +1473,6 @@ main#conteudo > section.section + section.section {
 
   .intro-panel,
   .about,
-  .audio-previews,
   .family {
     grid-template-columns: 1fr;
   }
@@ -1372,20 +1489,6 @@ main#conteudo > section.section + section.section {
 
 @media (max-width: 560px) {
   :root { --container-pad: 16px; }
-
-  .preview-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .preview-card-head {
-    grid-template-columns: 64px 1fr;
-    gap: 10px;
-  }
-
-  .preview-card-head img {
-    width: 64px;
-    height: 64px;
-  }
 
   .nav-links {
     justify-content: space-between;
@@ -1468,7 +1571,18 @@ main#conteudo > section.section + section.section {
   }
   .button:hover,
   .character-card:hover,
+  .character-card-live:hover,
+  .character-card-live:focus-within,
   .link-card:hover {
     transform: none;
+  }
+
+  #personagens .character-card-live .char-listen:hover,
+  #personagens .character-card-live .char-listen:focus-visible {
+    transform: none;
+    filter: brightness(1.05);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.35) inset,
+      0 10px 24px rgba(10, 8, 20, 0.45);
   }
 }
