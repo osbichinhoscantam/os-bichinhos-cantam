@@ -275,11 +275,10 @@ h3 {
   inset: 0;
   background-image: url("assets/hero.jpg");
   background-size: cover;
-  /* Zoom forte no canto inferior-direito: corta o título gravado na imagem
-     e mantém apenas flores/personagens à direita. */
-  background-position: 88% 100%;
+  /* Desktop: âncora mais próxima do centro que o canto direito evita arte colada na borda. */
+  background-position: 62% 100%;
   transform: scale(1.55);
-  transform-origin: 88% 100%;
+  transform-origin: 62% 100%;
   z-index: -3;
 }
 
