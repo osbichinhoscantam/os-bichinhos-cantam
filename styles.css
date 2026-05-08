@@ -37,6 +37,8 @@
 
   --container: 1160px;
   --container-pad: clamp(20px, 4vw, 32px);
+  /* Mesma faixa que sob o hero: ar entre cartões .section empilhados */
+  --section-stack-gap: clamp(28px, 5vw, 44px);
 }
 
 * { box-sizing: border-box; }
@@ -262,7 +264,7 @@ h3 {
 .hero {
   position: relative;
   min-height: clamp(560px, 78vh, 760px);
-  margin: 22px 0 28px;
+  margin: 22px 0 var(--section-stack-gap);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -304,7 +306,8 @@ h3 {
 .hero-content {
   min-height: clamp(560px, 78vh, 760px);
   max-width: 640px;
-  flex: 0 1 640px;
+  /* auto: largura só conforme texto; não reservar 640px nem empurrar a capa p/ direita */
+  flex: 0 1 auto;
   min-width: 0;
   padding: clamp(32px, 6vw, 72px);
   display: flex;
@@ -314,19 +317,21 @@ h3 {
 
 .hero-layout {
   min-height: clamp(560px, 78vh, 760px);
-  /* Flex mantém texto + capa lado a lado sem “vácuo” de 1fr entre blocos */
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  /* wrap empurrava a capa p/ segunda linha (embaixo à esquerda) em várias larguras */
+  flex-wrap: nowrap;
+  align-items: center;
   justify-content: flex-start;
   gap: clamp(16px, 3vw, 28px);
+  padding-inline-end: clamp(20px, 4vw, 48px);
 }
 
 .hero-cover-card {
-  margin: clamp(34px, 5vw, 58px) 0 0;
-  flex: 0 0 auto;
-  width: clamp(216px, 26vw, 340px);
+  margin: 0;
+  flex: 0 1 auto;
+  width: clamp(200px, 24vw, 320px);
+  min-width: 0;
   max-width: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -596,6 +601,12 @@ h3 {
    ========================================================= */
 .section {
   padding: clamp(40px, 6vw, 64px) 0;
+}
+
+/* Painéis com borda ficavam encostados (padding interno só);
+   igual ao espaço até o primeiro bloco após .hero */
+main#conteudo > section.section + section.section {
+  margin-top: var(--section-stack-gap);
 }
 
 .intro-panel,
@@ -1100,7 +1111,8 @@ h3 {
 /* Visual strip — banner-wide */
 .visual-strip {
   padding: 0;
-  margin: clamp(28px, 4vw, 40px) 0;
+  /* margin-vertical: topo vem do main > .section + .section; só bottom aqui */
+  margin: 0 0 clamp(28px, 4vw, 40px);
 }
 .visual-strip img {
   width: 100%;
