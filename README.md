@@ -89,7 +89,7 @@ Cada `git push` para `main` republica o site automaticamente em ~1 minuto.
 - [ ] Links externos com `target="_blank" rel="noopener noreferrer"`.
 - [ ] Site abre corretamente no celular (testar 360px e 390px).
 - [ ] Em pré-lançamento, não usar “já no ar”, “ouvir agora” ou links de faixa como se o EP já estivesse disponível.
-- [ ] Link principal de pré-lançamento leva para o HyperFollow/pré-save correto.
+- [ ] Link principal de pré-lançamento leva para o Spotify (álbum Vol. 1), não para DistroKid/HyperFollow.
 - [ ] Links Spotify/Apple em pré-lançamento levam para páginas de artista, não para botões “ouvir agora”.
 
 ## Segurança — repositório público
