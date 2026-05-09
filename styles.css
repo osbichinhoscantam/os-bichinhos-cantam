@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    Os Bichinhos Cantam — V3 (noite mágica premium)
    Paleta oficial V3 + responsivo mobile-first
    ========================================================= */
@@ -42,6 +42,8 @@
 }
 
 * { box-sizing: border-box; }
+
+figure { margin: 0; }
 
 html {
   scroll-behavior: smooth;
@@ -182,7 +184,7 @@ main {
 /* =========================================================
    Tipografia
    ========================================================= */
-h1, h2, h3, p, ul { margin-top: 0; }
+h1, h2, h3, h4, p, ul { margin-top: 0; }
 
 h1 {
   font-size: clamp(2.6rem, 7.5vw, 5.6rem);
@@ -313,25 +315,38 @@ h3 {
 }
 
 .hero-cover-card {
-  margin: 0;
-  flex: 0 1 auto;
-  width: clamp(200px, 24vw, 320px);
-  min-width: 0;
-  max-width: 100%;
-  /* Sobe um pouco em relação ao centro vertical do hero (alinha melhor com o bloco do título) */
-  transform: translateY(-clamp(14px, 2.2vw, 28px));
+  /* Alinha ao nível do título — sobe junto com o padding do hero-content */
+  align-self: flex-start;
+  margin-top: clamp(32px, 6vw, 72px);
+  flex: 0 0 auto;
+  /* Entre miniatura e o exagero anterior (~68vw): equilíbrio com texto + countdown */
+  width: clamp(240px, 36vw, 420px);
+  padding: clamp(5px, 0.55vw, 7px);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-md);
-  background: rgba(7, 9, 31, 0.45);
+  border: 1px solid rgba(255, 230, 180, 0.18);
+  background:
+    linear-gradient(
+      155deg,
+      rgba(255, 244, 212, 0.07) 0%,
+      rgba(255, 244, 212, 0.02) 45%,
+      rgba(12, 14, 38, 0.55) 100%
+    ),
+    rgba(7, 9, 31, 0.65);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.45) inset,
+    0 0 0 1px rgba(255, 230, 180, 0.06),
+    var(--shadow-md);
 }
 
 .hero-cover-card img {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: contain;
   display: block;
+  border-radius: calc(var(--radius-lg) - 10px);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35) inset;
 }
 
 .cta-row {
@@ -537,51 +552,82 @@ h3 {
    Countdown
    ========================================================= */
 .countdown {
+  /* Escala típos com a própria largura do cartão — não só com vw (painel Cursor / iframe estreitos) */
+  container-type: inline-size;
+  container-name: countdown;
   margin: 6px 0 18px;
-  padding: 18px 20px;
+  padding: 18px clamp(12px, 2.5vmin, 20px);
   border-radius: var(--radius-md);
   background: rgba(7, 9, 31, 0.55);
   border: 1px solid var(--line-strong);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   box-shadow: var(--shadow-sm), var(--glow-gold);
-  max-width: 540px;
+  width: 100%;
+  max-width: min(540px, 100%);
+  min-width: 0;
+  box-sizing: border-box;
 }
 .countdown-label {
   margin: 0 0 12px;
-  font-size: 0.78rem;
+  font-size: clamp(0.68rem, 2.15vmin + 0.15rem, 0.78rem);
   font-weight: 900;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--moon-gold);
 }
 .countdown-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(5px, 1.75vmin + 4px, 10px);
 }
 .countdown-cell {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 10px 6px;
+  justify-content: flex-start;
+  gap: 3px;
+  min-width: 0;
+  padding: clamp(6px, 1.75vmin + 4px, 10px) clamp(2px, 1vmin, 6px);
   border-radius: 14px;
   background: rgba(7, 9, 31, 0.45);
   border: 1px solid var(--line);
 }
+/* Fallback: vmin acompanha o viewport menor; CQ abaixo ajusta pela largura do cartão */
 .countdown-num {
-  font-size: clamp(1.85rem, 4.4vw, 2.6rem);
+  width: 100%;
+  max-width: 100%;
+  font-size: clamp(0.8rem, 4.75vmin + 0.42rem, 2.35rem);
   font-weight: 950;
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.06em;
   font-variant-numeric: tabular-nums;
+  text-align: center;
   background: linear-gradient(135deg, var(--moon-gold) 0%, var(--cta-orange) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   text-shadow: none;
 }
+@supports (container-type: inline-size) {
+  .countdown-num {
+    font-size: clamp(0.82rem, 11cqi + 0.2rem, 2.35rem);
+  }
+  .countdown-grid {
+    gap: clamp(5px, 2.75cqi, 10px);
+  }
+  .countdown-unit {
+    font-size: clamp(0.58rem, 2.85cqi + 0.1rem, 0.72rem);
+  }
+}
+
+/* Cartão estreito (painel lateral): 2×2 em vez de 4 colunas apertadas */
+@container countdown (max-width: 340px) {
+  .countdown-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .countdown-num-secs {
   animation: cd-pulse 1s ease-in-out infinite alternate;
 }
@@ -590,10 +636,12 @@ h3 {
   to { opacity: 1; }
 }
 .countdown-unit {
-  font-size: 0.7rem;
+  max-width: 100%;
+  text-align: center;
+  font-size: clamp(0.58rem, 2.05vmin + 0.06rem, 0.72rem);
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   color: var(--muted);
 }
 .countdown-foot {
@@ -602,22 +650,154 @@ h3 {
   color: var(--text-soft);
   font-weight: 700;
 }
+/* === Estado festivo pós-zero === */
 .countdown-live {
+  position: relative;
+  overflow: hidden;
   text-align: center;
+  padding: 24px 22px 20px;
+  border-color: rgba(255, 211, 106, 0.45);
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 20%, rgba(255, 211, 106, 0.14) 0%, transparent 72%),
+    rgba(7, 9, 31, 0.65);
+  animation: live-glow 3.2s ease-in-out infinite;
 }
-.countdown-live-msg {
-  margin: 4px 0 0;
-  font-size: 1.05rem;
+
+@keyframes live-glow {
+  0%, 100% { box-shadow: var(--shadow-sm), 0 0 22px rgba(255, 211, 106, 0.26); }
+  50%       { box-shadow: var(--shadow-sm), 0 0 42px rgba(255, 211, 106, 0.46); }
+}
+
+/* Estrelinhas decorativas */
+.live-spark {
+  position: absolute;
+  font-size: 0.9rem;
+  color: var(--moon-gold);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  animation: live-twinkle 2.6s ease-in-out infinite;
+}
+.live-spark-1 { top: 12%; left:   7%; animation-delay: 0s; }
+.live-spark-2 { top: 18%; right:  9%; animation-delay: 0.65s; font-size: 0.65rem; }
+.live-spark-3 { bottom: 22%; left: 10%; animation-delay: 1.3s; font-size: 0.72rem; }
+.live-spark-4 { bottom: 16%; right:  7%; animation-delay: 1.95s; }
+
+@keyframes live-twinkle {
+  0%, 100% { opacity: 0.18; transform: scale(0.7) rotate(0deg); }
+  50%       { opacity: 1;   transform: scale(1.35) rotate(30deg); filter: drop-shadow(0 0 6px rgba(255, 211, 106, 0.9)); }
+}
+
+/* Eyebrow */
+.live-eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.72rem;
   font-weight: 900;
-  color: var(--warm-cream);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--moon-gold);
+  text-shadow: 0 0 18px rgba(255, 211, 106, 0.52);
 }
+
+/* Título com shimmer dourado em movimento */
+.live-title {
+  margin: 0 0 8px;
+  font-size: clamp(1.55rem, 3.8vw, 2.1rem);
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  background: linear-gradient(90deg,
+    #ffe9a8 0%,
+    var(--cta-orange) 30%,
+    var(--moon-gold) 55%,
+    #ffe9a8 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: live-shimmer 3s linear infinite;
+}
+
+@keyframes live-shimmer {
+  from { background-position: 0% center; }
+  to   { background-position: 200% center; }
+}
+
+/* Subtítulo */
+.live-sub {
+  margin: 0 0 18px;
+  font-size: 0.87rem;
+  line-height: 1.5;
+  color: var(--text-soft);
+  font-weight: 700;
+}
+.live-sub span {
+  color: var(--moon-gold);
+}
+
+/* Botões de streaming */
+.live-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.live-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 0.84rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+.live-btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.live-btn svg { width: 15px; height: 15px; flex-shrink: 0; fill: currentColor; }
+
+.live-btn-spotify {
+  background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(30, 215, 96, 0.38), 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.live-btn-apple {
+  background: linear-gradient(135deg, #fa5b8b 0%, #fc6d6d 100%);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+}
+
+/* Link "ver todos" */
+.live-links-note {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.live-links-note a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+.live-links-note a:hover { color: var(--moon-gold); }
 
 @media (prefers-reduced-motion: reduce) {
-  .countdown-num-secs { animation: none; }
+  .countdown-num-secs,
+  .countdown-live,
+  .live-spark,
+  .live-title { animation: none; }
+  .live-spark { opacity: 0.5; }
+  .live-title { background-position: 0% center; }
 }
 
-@media (max-width: 380px) {
-  .countdown-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 460px) {
+  .countdown-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* =========================================================
@@ -1073,7 +1253,7 @@ main#conteudo > section#personagens.section + section.family {
   margin-bottom: 12px !important;
 }
 
-/* Pré-save: CTA primário tipo “elevated pill” — sólido, foco legível; sem pulse infinito */
+/* CTA dos cards: verde Spotify por padrao -> dourado no hover */
 #personagens .character-card-live .char-listen {
   display: inline-flex;
   align-items: center;
@@ -1084,13 +1264,9 @@ main#conteudo > section#personagens.section + section.family {
   min-height: 44px;
   padding: 11px 18px;
   border-radius: 999px;
-  background:
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.18) 0%,
-      rgba(255, 255, 255, 0) 50%),
-    linear-gradient(160deg, #ffe566 0%, var(--moon-gold) 40%, var(--cta-orange) 100%);
-  border: 1px solid rgba(255, 210, 80, 0.55);
-  color: var(--ink);
+  background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
+  border: 1px solid transparent;
+  color: #fff;
   text-decoration: none;
   font-family: inherit;
   font-weight: 900;
@@ -1099,10 +1275,8 @@ main#conteudo > section#personagens.section + section.family {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.5) inset,
-    0 -1px 0 rgba(0, 0, 0, 0.12) inset,
-    0 8px 20px rgba(10, 8, 20, 0.48),
-    0 0 0 1px rgba(255, 200, 80, 0.2);
+    0 0 12px rgba(30, 215, 96, 0.32),
+    0 8px 20px rgba(0, 0, 0, 0.32);
   transition:
     transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
     box-shadow 200ms ease,
@@ -1113,38 +1287,42 @@ main#conteudo > section#personagens.section + section.family {
   margin-top: 6px;
 }
 
-/* Hover: mesma língua visual do .button-presave no hero (Spotify) */
+/* Hover: dourado — cor da casa */
 #personagens .character-card-live .char-listen:hover {
   transform: translateY(-2px);
   filter: none;
-  background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
-  color: #fff;
-  border-color: transparent;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 50%),
+    linear-gradient(160deg, #ffe566 0%, var(--moon-gold) 40%, var(--cta-orange) 100%);
+  color: var(--ink);
+  border-color: rgba(255, 210, 80, 0.55);
   box-shadow:
-    0 0 14px rgba(30, 215, 96, 0.4),
-    0 12px 28px rgba(0, 0, 0, 0.32);
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 12px 28px rgba(10, 8, 20, 0.48);
 }
 
 #personagens .character-card-live .char-listen:hover .char-listen-icon {
-  opacity: 1;
+  opacity: 0.75;
 }
 
 #personagens .character-card-live .char-listen:focus-visible {
   outline: none;
   transform: translateY(-1px);
-  background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
-  color: #fff;
-  border-color: transparent;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 50%),
+    linear-gradient(160deg, #ffe566 0%, var(--moon-gold) 40%, var(--cta-orange) 100%);
+  color: var(--ink);
+  border-color: rgba(255, 210, 80, 0.55);
   box-shadow:
-    0 0 14px rgba(30, 215, 96, 0.45),
-    0 12px 28px rgba(0, 0, 0, 0.32),
-    0 0 0 3px rgba(255, 211, 106, 0.45);
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 10px 24px rgba(10, 8, 20, 0.48),
+    0 0 0 3px rgba(255, 211, 106, 0.5);
 }
 
 .char-listen .char-listen-icon {
   width: 15px;
   height: 15px;
-  opacity: 0.75;
+  opacity: 0.85;
   flex-shrink: 0;
 }
 
@@ -1379,12 +1557,16 @@ main#conteudo > section#personagens.section + section.family {
   border-color: rgba(255, 95, 0, 0.5);
   color: #fff;
 }
+/* Hover genérico (fallback) */
 .link-card:hover {
   transform: translateY(-2px);
   background: rgba(255, 244, 212, 0.14);
   border-color: var(--line-strong);
   box-shadow: var(--shadow-sm);
 }
+/* Hover com cor da plataforma preenchendo o card */
+.link-card:hover .link-platform,
+.link-card:hover .link-action { color: #fff; }
 
 .link-card.link-spotify {
   background: linear-gradient(135deg,
@@ -1394,9 +1576,48 @@ main#conteudo > section#personagens.section + section.family {
   box-shadow: var(--glow-gold);
 }
 .link-card.link-spotify:hover {
+  background: linear-gradient(135deg, #1ed760 0%, #1aaf4d 100%);
+  border-color: rgba(30, 215, 96, 0.6);
+  box-shadow: 0 0 28px rgba(30, 215, 96, 0.35), var(--shadow-sm);
+}
+
+.link-card.link-apple:hover {
+  background: linear-gradient(135deg, #fa5b8b 0%, #fc6d6d 100%);
+  border-color: rgba(250, 91, 139, 0.6);
+  box-shadow: 0 0 28px rgba(250, 91, 139, 0.3), var(--shadow-sm);
+}
+
+.link-card.link-youtube:hover {
+  background: linear-gradient(135deg, #ff0033 0%, #cc0026 100%);
+  border-color: rgba(255, 0, 51, 0.6);
+  box-shadow: 0 0 28px rgba(255, 0, 51, 0.3), var(--shadow-sm);
+}
+
+.link-card.link-instagram:hover {
   background: linear-gradient(135deg,
-    rgba(255, 211, 106, 0.26) 0%,
-    rgba(255, 138, 36, 0.16) 100%);
+    #feda77 0%,
+    #f58529 22%,
+    #dd2a7b 52%,
+    #8134af 78%,
+    #515bd4 100%);
+  border-color: rgba(221, 42, 123, 0.6);
+  box-shadow: 0 0 28px rgba(221, 42, 123, 0.3), var(--shadow-sm);
+}
+
+.link-card.link-tiktok:hover {
+  background: #010101;
+  border-color: rgba(37, 244, 238, 0.6);
+  box-shadow:
+    0 0 28px rgba(37, 244, 238, 0.22),
+    inset 2px 0 0 #fe2c55,
+    inset -2px 0 0 #25f4ee,
+    var(--shadow-sm);
+}
+
+.link-card.link-kwai:hover {
+  background: linear-gradient(135deg, #ff5f00 0%, #ff8a00 100%);
+  border-color: rgba(255, 95, 0, 0.6);
+  box-shadow: 0 0 28px rgba(255, 95, 0, 0.3), var(--shadow-sm);
 }
 
 .link-platform {
@@ -1444,6 +1665,17 @@ main#conteudo > section#personagens.section + section.family {
   margin: 8px 0 0;
 }
 
+.footer-author {
+  color: var(--moon-gold);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 160ms ease;
+}
+.footer-author:hover {
+  color: var(--cta-orange);
+  text-decoration: underline;
+}
+
 /* =========================================================
    Responsive
    ========================================================= */
@@ -1461,12 +1693,8 @@ main#conteudo > section#personagens.section + section.family {
 }
 
 @media (max-width: 768px) {
-  .character-grid-teaser {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+  body { background-attachment: scroll; }
 
-@media (max-width: 768px) {
   .nav {
     padding: 12px 0;
     gap: 10px;
@@ -1518,6 +1746,10 @@ main#conteudo > section#personagens.section + section.family {
   }
   .about {
     gap: 14px;
+  }
+
+  .character-grid-teaser {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .family-stats { gap: 8px; }
@@ -1617,11 +1849,13 @@ main#conteudo > section#personagens.section + section.family {
   #personagens .character-card-live .char-listen:focus-visible {
     transform: none;
     filter: none;
-    background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
-    color: #fff;
-    border-color: transparent;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 50%),
+      linear-gradient(160deg, #ffe566 0%, var(--moon-gold) 40%, var(--cta-orange) 100%);
+    color: var(--ink);
+    border-color: rgba(255, 210, 80, 0.55);
     box-shadow:
-      0 0 14px rgba(30, 215, 96, 0.4),
-      0 12px 28px rgba(0, 0, 0, 0.32);
+      0 1px 0 rgba(255, 255, 255, 0.5) inset,
+      0 12px 28px rgba(10, 8, 20, 0.48);
   }
 }
