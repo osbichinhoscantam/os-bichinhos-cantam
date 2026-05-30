@@ -1,3 +1,8 @@
+---
+ingestado: true
+data_ingestion: 2026-05-08
+---
+
 # Os Bichinhos Cantam — Site oficial
 
 Landing estática do projeto brasileiro de música infantil **Os Bichinhos Cantam**, com Edgar, João, Duda e Raquel. Estado atual: pré-lançamento do Vol. 1 em 12/05/2026.

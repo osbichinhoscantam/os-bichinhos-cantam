@@ -1,32 +1,49 @@
 ﻿/* =========================================================
-   Os Bichinhos Cantam — V3 (noite mágica premium)
-   Paleta oficial V3 + responsivo mobile-first
+   Os Bichinhos Cantam — tema Murilo (outono / âmbar)
    ========================================================= */
 
 :root {
-  /* Paleta V3 oficial */
-  --night-deep: #07091f;
-  --night-blue: #091041;
-  --violet-deep: #17115c;
-  --violet-accent: #6f3ee8;
-  --magic-pink: #e86ce8;
+  /* Murilo — outono / âmbar queimado */
+  --murilo-deep: #0c0806;
+  --murilo-mid: #1f120c;
+  --murilo-rust: #3d2214;
+  --murilo-accent: #c87852;
+  --murilo-accent-soft: #e09060;
+  --murilo-amber: rgba(228, 145, 102, 0.22);
+  --murilo-glow: rgba(240, 176, 128, 0.16);
+  --murilo-ember: rgba(180, 85, 42, 0.18);
+  --murilo-surface: rgba(28, 16, 10, 0.55);
+  --murilo-surface-mid: rgba(28, 16, 10, 0.45);
+  --murilo-surface-light: rgba(28, 16, 10, 0.42);
+  --murilo-surface-strong: rgba(18, 10, 6, 0.78);
+  --murilo-panel: rgba(32, 18, 12, 0.72);
+  --murilo-ink: #140c08;
+  --murilo-muted: #c9a088;
+  --murilo-text-soft: #f5dcc8;
+
+  /* Aliases legados → Murilo */
+  --night-deep: var(--murilo-deep);
+  --night-blue: var(--murilo-mid);
+  --violet-deep: var(--murilo-rust);
+  --violet-accent: var(--murilo-accent-soft);
+  --magic-pink: var(--murilo-amber);
+
   --moon-gold: #ffd36a;
   --cta-orange: #ff8a24;
   --warm-cream: #fff4d4;
 
-  /* Variações funcionais */
   --text: var(--warm-cream);
-  --text-soft: #e8dcff;
-  --muted: #c7b8ee;
-  --ink: #0a0c20;
-  --line: rgba(255, 230, 180, 0.16);
-  --line-strong: rgba(255, 230, 180, 0.28);
-  --glass: rgba(9, 13, 56, 0.55);
-  --glass-strong: rgba(9, 13, 56, 0.78);
+  --text-soft: var(--murilo-text-soft);
+  --muted: var(--murilo-muted);
+  --ink: var(--murilo-ink);
+  --line: rgba(240, 176, 128, 0.16);
+  --line-strong: rgba(240, 176, 128, 0.28);
+  --glass: var(--murilo-surface);
+  --glass-strong: var(--murilo-surface-strong);
 
-  --shadow-sm: 0 8px 24px rgba(3, 4, 18, 0.32);
-  --shadow-md: 0 18px 48px rgba(3, 4, 18, 0.42);
-  --shadow-lg: 0 28px 90px rgba(3, 4, 18, 0.5);
+  --shadow-sm: 0 8px 24px rgba(8, 4, 2, 0.32);
+  --shadow-md: 0 18px 48px rgba(8, 4, 2, 0.42);
+  --shadow-lg: 0 28px 90px rgba(8, 4, 2, 0.5);
   --glow-gold: 0 0 32px rgba(255, 211, 106, 0.32);
   --glow-orange: 0 0 36px rgba(255, 138, 36, 0.36);
 
@@ -58,10 +75,10 @@ body {
   font-weight: 500;
   color: var(--text);
   background:
-    radial-gradient(ellipse at 12% 6%, rgba(232, 108, 232, 0.18), transparent 38%),
-    radial-gradient(ellipse at 88% 4%, rgba(255, 211, 106, 0.16), transparent 36%),
-    radial-gradient(ellipse at 50% 100%, rgba(111, 62, 232, 0.22), transparent 50%),
-    linear-gradient(180deg, var(--night-deep) 0%, var(--night-blue) 50%, var(--violet-deep) 100%);
+    radial-gradient(ellipse at 14% 8%, var(--murilo-glow), transparent 40%),
+    radial-gradient(ellipse at 86% 6%, var(--murilo-amber), transparent 38%),
+    radial-gradient(ellipse at 50% 100%, var(--murilo-ember), transparent 52%),
+    linear-gradient(180deg, var(--murilo-deep) 0%, var(--murilo-mid) 48%, var(--murilo-rust) 100%);
   background-attachment: fixed;
   min-height: 100vh;
   line-height: 1.5;
@@ -113,7 +130,7 @@ img {
   z-index: 30;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  background: rgba(7, 9, 31, 0.78);
+  background: rgba(12, 8, 6, 0.82);
   border-bottom: 1px solid var(--line);
 }
 
@@ -275,18 +292,16 @@ h3 {
   position: absolute;
   inset: 0;
   background:
-    /* Máscara forte do lado esquerdo cobrindo TODA a coluna do H1 */
     linear-gradient(95deg,
-      rgba(7, 9, 31, 0.98) 0%,
-      rgba(7, 9, 31, 0.96) 42%,
-      rgba(7, 9, 31, 0.78) 56%,
-      rgba(7, 9, 31, 0.32) 78%,
-      rgba(7, 9, 31, 0.12) 100%),
-    /* Vinheta vertical sutil */
+      rgba(12, 8, 6, 0.98) 0%,
+      rgba(18, 12, 8, 0.96) 42%,
+      rgba(28, 16, 10, 0.78) 56%,
+      rgba(32, 18, 12, 0.32) 78%,
+      rgba(36, 20, 12, 0.12) 100%),
     linear-gradient(180deg,
-      rgba(7, 9, 31, 0.35) 0%,
-      rgba(7, 9, 31, 0.0) 38%,
-      rgba(7, 9, 31, 0.50) 100%);
+      rgba(12, 8, 6, 0.35) 0%,
+      rgba(12, 8, 6, 0.0) 38%,
+      rgba(12, 8, 6, 0.50) 100%);
   z-index: -2;
 }
 
@@ -330,9 +345,9 @@ h3 {
       155deg,
       rgba(255, 244, 212, 0.07) 0%,
       rgba(255, 244, 212, 0.02) 45%,
-      rgba(12, 14, 38, 0.55) 100%
+      rgba(32, 18, 12, 0.55) 100%
     ),
-    rgba(7, 9, 31, 0.65);
+    var(--murilo-surface-strong);
   box-shadow:
     0 0 0 1px rgba(0, 0, 0, 0.45) inset,
     0 0 0 1px rgba(255, 230, 180, 0.06),
@@ -347,6 +362,55 @@ h3 {
   display: block;
   border-radius: calc(var(--radius-lg) - 10px);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35) inset;
+}
+
+.hero-murilo-panel {
+  position: relative;
+  overflow: hidden;
+  margin-top: 8px;
+  text-align: center;
+}
+.hero-murilo-panel .live-cta-row {
+  justify-content: center;
+}
+.hero-murilo-panel .live-links-note {
+  text-align: center;
+}
+.hero-murilo-gif-wrap {
+  margin: 14px auto 16px;
+  width: min(100%, 200px);
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(200, 118, 82, 0.35);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+.hero-murilo-gif,
+.hero-murilo-gif-still {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-murilo-gif-still {
+  display: none;
+}
+
+.hero-cover-card--murilo {
+  border-color: rgba(200, 118, 82, 0.28);
+}
+.hero-cover-card--murilo .hero-cover-video,
+.hero-cover-card--murilo .hero-cover-still {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: calc(var(--radius-lg) - 10px);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35) inset;
+}
+.hero-cover-still {
+  display: none;
 }
 
 .cta-row {
@@ -416,7 +480,7 @@ h3 {
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.5) inset,
     0 -1px 0 rgba(0, 0, 0, 0.12) inset,
-    0 8px 20px rgba(10, 8, 20, 0.48),
+    0 8px 20px rgba(12, 6, 4, 0.48),
     0 0 0 1px rgba(255, 200, 80, 0.2);
   transition:
     transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1),
@@ -558,7 +622,7 @@ h3 {
   margin: 6px 0 18px;
   padding: 18px clamp(12px, 2.5vmin, 20px);
   border-radius: var(--radius-md);
-  background: rgba(7, 9, 31, 0.55);
+  background: var(--murilo-surface);
   border: 1px solid var(--line-strong);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -590,7 +654,7 @@ h3 {
   min-width: 0;
   padding: clamp(6px, 1.75vmin + 4px, 10px) clamp(2px, 1vmin, 6px);
   border-radius: 14px;
-  background: rgba(7, 9, 31, 0.45);
+  background: var(--murilo-surface-mid);
   border: 1px solid var(--line);
 }
 /* Fallback: vmin acompanha o viewport menor; CQ abaixo ajusta pela largura do cartão */
@@ -656,16 +720,38 @@ h3 {
   overflow: hidden;
   text-align: center;
   padding: 24px 22px 20px;
-  border-color: rgba(255, 211, 106, 0.45);
+  border: 1px solid rgba(255, 211, 106, 0.45);
+  border-radius: var(--radius-lg);
   background:
     radial-gradient(ellipse 90% 55% at 50% 20%, rgba(255, 211, 106, 0.14) 0%, transparent 72%),
-    rgba(7, 9, 31, 0.65);
+    linear-gradient(165deg, #241408 0%, #1a100a 52%, #140c08 100%);
   animation: live-glow 3.2s ease-in-out infinite;
 }
 
 @keyframes live-glow {
   0%, 100% { box-shadow: var(--shadow-sm), 0 0 22px rgba(255, 211, 106, 0.26); }
   50%       { box-shadow: var(--shadow-sm), 0 0 42px rgba(255, 211, 106, 0.46); }
+}
+
+/* Hero #ouvir — prevalece sobre .countdown-live (Vol. 1 dourado) */
+.hero-murilo-panel.countdown-live {
+  border: 1px solid rgba(200, 118, 82, 0.48);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 18%, rgba(228, 145, 102, 0.24) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 45% at 50% 100%, rgba(180, 85, 42, 0.16) 0%, transparent 55%),
+    linear-gradient(165deg, #241408 0%, #1a100a 48%, #140c08 100%);
+  animation: murilo-glow 3.2s ease-in-out infinite;
+}
+.hero-murilo-panel .live-eyebrow {
+  color: #f0b080;
+  text-shadow: 0 0 18px rgba(200, 118, 82, 0.52);
+}
+.hero-murilo-panel .live-spark {
+  color: var(--murilo-accent-soft);
+}
+.hero-murilo-panel .live-sub span {
+  color: #f0b080;
 }
 
 /* Estrelinhas decorativas */
@@ -787,13 +873,124 @@ h3 {
 }
 .live-links-note a:hover { color: var(--moon-gold); }
 
+/* === Spotlight de lançamento — Murilo === */
+.launch-spotlight {
+  margin: 0 0 var(--section-stack-gap);
+}
+.launch-spotlight-inner {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(200, 118, 82, 0.42);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: clamp(22px, 4vw, 34px);
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 20%, rgba(200, 118, 82, 0.16) 0%, transparent 72%),
+    linear-gradient(165deg, #241408 0%, #1a100a 52%, #140c08 100%);
+}
+.launch-spotlight--murilo .launch-spotlight-inner {
+  animation: murilo-glow 3.2s ease-in-out infinite;
+}
+@keyframes murilo-glow {
+  0%, 100% { box-shadow: var(--shadow-lg), 0 0 22px rgba(200, 118, 82, 0.22); }
+  50%       { box-shadow: var(--shadow-lg), 0 0 42px rgba(200, 118, 82, 0.38); }
+}
+.launch-spotlight-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+  gap: clamp(18px, 3vw, 32px);
+  align-items: center;
+}
+.launch-spotlight-media {
+  margin: 0;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(200, 118, 82, 0.35);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+  aspect-ratio: 1;
+  background: rgba(28, 16, 10, 0.5);
+}
+.launch-spotlight-video,
+.launch-spotlight-still {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.launch-spotlight-still {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.launch-spotlight--murilo .live-eyebrow {
+  color: #f0b080;
+  text-shadow: 0 0 18px rgba(200, 118, 82, 0.52);
+}
+.launch-spotlight--murilo .live-title,
+.hero-murilo-panel .live-title {
+  color: var(--warm-cream);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  animation: none;
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.55),
+    0 0 20px rgba(200, 118, 82, 0.35);
+}
+.launch-spotlight--murilo .live-sub span {
+  color: #f0b080;
+}
+.launch-spotlight--vol1 .launch-spotlight-inner {
+  border-color: rgba(255, 211, 106, 0.45);
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 20%, rgba(255, 211, 106, 0.14) 0%, transparent 72%),
+    linear-gradient(165deg, #241408 0%, #1a100a 52%, #140c08 100%);
+  animation: live-glow 3.2s ease-in-out infinite;
+}
+.launch-spotlight-content {
+  text-align: left;
+}
+.launch-spotlight-content .live-cta-row {
+  justify-content: flex-start;
+}
+.launch-spotlight-content .live-links-note {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .launch-spotlight-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .launch-spotlight-content { text-align: center; }
+  .launch-spotlight-content .live-cta-row { justify-content: center; }
+  .launch-spotlight-content .live-links-note { text-align: center; }
+  .launch-spotlight-media {
+    max-width: 320px;
+    margin-inline: auto;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .countdown-num-secs,
   .countdown-live,
+  .launch-spotlight-inner,
+  .launch-spotlight--vol1 .launch-spotlight-inner,
+  .hero-murilo-panel,
   .live-spark,
   .live-title { animation: none; }
   .live-spark { opacity: 0.5; }
   .live-title { background-position: 0% center; }
+  .launch-spotlight-video { display: none; }
+  .launch-spotlight-still { opacity: 1; position: static; }
+  .hero-cover-video { display: none; }
+  .hero-cover-still { display: block; }
+  .hero-murilo-gif { display: none; }
+  .hero-murilo-gif-still { display: block; }
 }
 
 @media (max-width: 460px) {
@@ -828,8 +1025,8 @@ main#conteudo > section#personagens.section + section.family {
 .links,
 .family {
   background: linear-gradient(145deg,
-    rgba(255, 244, 212, 0.10) 0%,
-    rgba(255, 244, 212, 0.04) 100%);
+    rgba(240, 176, 128, 0.10) 0%,
+    rgba(240, 176, 128, 0.04) 100%);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
@@ -935,8 +1132,8 @@ main#conteudo > section#personagens.section + section.family {
   box-shadow: 0 0 12px var(--moon-gold);
 }
 .cast-tag-soon {
-  background: rgba(199, 184, 238, 0.10);
-  border: 1px solid rgba(199, 184, 238, 0.32);
+  background: rgba(228, 145, 102, 0.10);
+  border: 1px solid rgba(228, 145, 102, 0.28);
   color: var(--muted);
 }
 
@@ -994,8 +1191,8 @@ main#conteudo > section#personagens.section + section.family {
 
 .character-card {
   background: linear-gradient(180deg,
-    rgba(255, 244, 212, 0.12) 0%,
-    rgba(255, 244, 212, 0.04) 100%);
+    rgba(240, 176, 128, 0.10) 0%,
+    rgba(240, 176, 128, 0.03) 100%);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   padding: 14px;
@@ -1075,25 +1272,25 @@ main#conteudo > section#personagens.section + section.family {
   white-space: nowrap;
 }
 
-/* Edgar — slate / luz fria do radial do card */
+/* Edgar — taupe quente (sem azul) */
 #personagens .character-card-live--edgar .preview-toggle {
-  border: 1px solid rgba(160, 172, 205, 0.45);
-  background: rgba(16, 18, 42, 0.45);
-  color: rgba(224, 228, 246, 0.96);
+  border: 1px solid rgba(168, 138, 118, 0.45);
+  background: rgba(36, 22, 14, 0.45);
+  color: rgba(245, 220, 200, 0.96);
 }
 #personagens .character-card-live--edgar .preview-toggle .char-preview-label {
-  color: rgba(206, 212, 238, 0.95);
+  color: rgba(228, 200, 178, 0.95);
 }
 #personagens .character-card-live--edgar .preview-toggle:hover,
 #personagens .character-card-live--edgar .preview-toggle:focus-visible {
-  background: rgba(150, 162, 190, 0.18);
-  border-color: rgba(180, 192, 218, 0.65);
+  background: rgba(120, 92, 72, 0.22);
+  border-color: rgba(188, 158, 128, 0.65);
   color: var(--warm-cream);
 }
 #personagens .character-card-live--edgar.is-playing .preview-toggle {
-  background: linear-gradient(135deg, rgba(155, 168, 198, 0.35) 0%, rgba(36, 42, 58, 0.92) 100%);
-  border-color: rgba(188, 198, 226, 0.7);
-  box-shadow: 0 0 0 1px rgba(150, 162, 188, 0.2), 0 8px 22px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(135deg, rgba(148, 118, 92, 0.38) 0%, rgba(52, 38, 28, 0.92) 100%);
+  border-color: rgba(200, 168, 138, 0.7);
+  box-shadow: 0 0 0 1px rgba(148, 118, 92, 0.22), 0 8px 22px rgba(0, 0, 0, 0.35);
 }
 #personagens .character-card-live--edgar.is-playing .preview-toggle .char-preview-label {
   color: var(--warm-cream);
@@ -1102,7 +1299,7 @@ main#conteudo > section#personagens.section + section.family {
 /* João — cinza-acolhedor */
 #personagens .character-card-live--joao .preview-toggle {
   border: 1px solid rgba(135, 126, 138, 0.48);
-  background: rgba(16, 18, 42, 0.45);
+  background: rgba(36, 22, 14, 0.45);
   color: rgba(232, 226, 236, 0.96);
 }
 #personagens .character-card-live--joao .preview-toggle .char-preview-label {
@@ -1171,6 +1368,30 @@ main#conteudo > section#personagens.section + section.family {
   color: var(--warm-cream);
 }
 
+/* Murilo — âmbar queimado / outono */
+#personagens .character-card-live--murilo .preview-toggle {
+  border: 1px solid rgba(200, 118, 82, 0.52);
+  background: rgba(36, 22, 14, 0.52);
+  color: rgba(255, 228, 205, 0.96);
+}
+#personagens .character-card-live--murilo .preview-toggle .char-preview-label {
+  color: rgba(246, 200, 168, 0.95);
+}
+#personagens .character-card-live--murilo .preview-toggle:hover,
+#personagens .character-card-live--murilo .preview-toggle:focus-visible {
+  background: rgba(195, 115, 75, 0.24);
+  border-color: rgba(228, 145, 102, 0.68);
+  color: var(--warm-cream);
+}
+#personagens .character-card-live--murilo.is-playing .preview-toggle {
+  background: linear-gradient(135deg, rgba(205, 120, 82, 0.36) 0%, rgba(62, 38, 24, 0.92) 100%);
+  border-color: rgba(228, 145, 110, 0.72);
+  box-shadow: 0 0 0 1px rgba(200, 118, 82, 0.28), 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+#personagens .character-card-live--murilo.is-playing .preview-toggle .char-preview-label {
+  color: var(--warm-cream);
+}
+
 #personagens .character-card-live .preview-toggle-icon {
   width: 16px;
   height: 16px;
@@ -1219,29 +1440,40 @@ main#conteudo > section#personagens.section + section.family {
 .character-card-live--edgar:hover,
 .character-card-live--edgar:focus-within {
   background:
-    radial-gradient(ellipse 95% 78% at 72% 18%, rgba(150, 160, 188, 0.62) 0%, transparent 52%),
-    linear-gradient(165deg, rgba(52, 56, 72, 0.92) 0%, rgba(12, 14, 38, 0.78) 100%);
+    radial-gradient(ellipse 95% 78% at 72% 18%, rgba(168, 132, 108, 0.58) 0%, transparent 52%),
+    linear-gradient(165deg, rgba(72, 52, 38, 0.92) 0%, rgba(12, 8, 6, 0.78) 100%);
 }
 
 .character-card-live--joao:hover,
 .character-card-live--joao:focus-within {
   background:
     radial-gradient(ellipse 95% 78% at 70% 22%, rgba(125, 118, 128, 0.58) 0%, transparent 54%),
-    linear-gradient(165deg, rgba(78, 74, 86, 0.9) 0%, rgba(12, 14, 38, 0.76) 100%);
+    linear-gradient(165deg, rgba(78, 74, 86, 0.9) 0%, rgba(12, 8, 6, 0.76) 100%);
 }
 
 .character-card-live--duda:hover,
 .character-card-live--duda:focus-within {
   background:
     radial-gradient(ellipse 95% 78% at 68% 24%, rgba(118, 152, 118, 0.56) 0%, transparent 52%),
-    linear-gradient(165deg, rgba(48, 78, 58, 0.9) 0%, rgba(12, 14, 38, 0.76) 100%);
+    linear-gradient(165deg, rgba(48, 78, 58, 0.9) 0%, rgba(12, 8, 6, 0.76) 100%);
 }
 
 .character-card-live--raquel:hover,
 .character-card-live--raquel:focus-within {
   background:
     radial-gradient(ellipse 95% 78% at 70% 20%, rgba(200, 118, 82, 0.55) 0%, transparent 50%),
-    linear-gradient(165deg, rgba(98, 58, 48, 0.88) 0%, rgba(12, 14, 38, 0.76) 100%);
+    linear-gradient(165deg, rgba(98, 58, 48, 0.88) 0%, rgba(12, 8, 6, 0.76) 100%);
+}
+
+.character-card-live--murilo:hover,
+.character-card-live--murilo:focus-within {
+  background:
+    radial-gradient(ellipse 95% 78% at 68% 22%, rgba(210, 130, 78, 0.58) 0%, transparent 52%),
+    linear-gradient(165deg, rgba(92, 52, 32, 0.9) 0%, rgba(12, 8, 6, 0.76) 100%);
+}
+
+.character-grid-murilo {
+  grid-template-columns: minmax(260px, 340px);
 }
 
 .character-card p {
@@ -1298,7 +1530,7 @@ main#conteudo > section#personagens.section + section.family {
   border-color: rgba(255, 210, 80, 0.55);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.5) inset,
-    0 12px 28px rgba(10, 8, 20, 0.48);
+    0 12px 28px rgba(12, 6, 4, 0.48);
 }
 
 #personagens .character-card-live .char-listen:hover .char-listen-icon {
@@ -1315,7 +1547,7 @@ main#conteudo > section#personagens.section + section.family {
   border-color: rgba(255, 210, 80, 0.55);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.5) inset,
-    0 10px 24px rgba(10, 8, 20, 0.48),
+    0 10px 24px rgba(12, 6, 4, 0.48),
     0 0 0 3px rgba(255, 211, 106, 0.5);
 }
 
@@ -1342,7 +1574,7 @@ main#conteudo > section#personagens.section + section.family {
 }
 .stat {
   width: 100%;
-  background: rgba(7, 9, 31, 0.42);
+  background: var(--murilo-surface-light);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   padding: 12px 14px;
@@ -1417,7 +1649,7 @@ main#conteudo > section#personagens.section + section.family {
   margin: 6px 0 0;
   padding: 18px 20px;
   border-radius: var(--radius-md);
-  background: rgba(7, 9, 31, 0.42);
+  background: var(--murilo-surface-light);
   border: 1px solid var(--line);
 }
 .about-meta > div {
@@ -1491,7 +1723,7 @@ main#conteudo > section#personagens.section + section.family {
   display: inline-grid;
   place-items: center;
   border-radius: 14px;
-  background: rgba(7, 9, 31, 0.55);
+  background: var(--murilo-surface);
   border: 1px solid var(--line);
   color: var(--warm-cream);
   flex-shrink: 0;
@@ -1721,10 +1953,10 @@ main#conteudo > section#personagens.section + section.family {
   .hero-overlay {
     background:
       linear-gradient(180deg,
-        rgba(7, 9, 31, 0.86) 0%,
-        rgba(7, 9, 31, 0.55) 32%,
-        rgba(7, 9, 31, 0.30) 55%,
-        rgba(7, 9, 31, 0.82) 100%);
+        rgba(12, 8, 6, 0.86) 0%,
+        rgba(18, 12, 8, 0.55) 32%,
+        rgba(28, 16, 10, 0.30) 55%,
+        rgba(12, 8, 6, 0.82) 100%);
   }
 
   .hero-layout {
@@ -1733,6 +1965,9 @@ main#conteudo > section#personagens.section + section.family {
   }
   .hero-cover-card {
     display: none;
+  }
+  .hero-murilo-gif-wrap {
+    width: min(100%, 240px);
   }
 
   .intro-panel,
@@ -1856,6 +2091,6 @@ main#conteudo > section#personagens.section + section.family {
     border-color: rgba(255, 210, 80, 0.55);
     box-shadow:
       0 1px 0 rgba(255, 255, 255, 0.5) inset,
-      0 12px 28px rgba(10, 8, 20, 0.48);
+      0 12px 28px rgba(12, 6, 4, 0.48);
   }
 }

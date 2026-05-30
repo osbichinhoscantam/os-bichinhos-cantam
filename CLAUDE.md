@@ -1,3 +1,8 @@
+---
+ingestado: true
+data_ingestion: 2026-05-08
+---
+
 # Os Bichinhos Cantam — Contexto para o Claude
 
 ## Descrições de personagens (cards)
@@ -8,7 +13,7 @@ Uma frase só, limpa:
 
 Exemplos aprovados:
 - "O cão gigante e fofão que só quer carinho e sofá."
-- "O esquilo atrapalhado que nunca lembra onde guardou a bolota."
+- "O esquilo atrapalhado que nunca lembra onde guardou a castanha."
 - "O leopardo quietinho que aparece quando ninguém espera."
 
 ### Tom certo
@@ -27,5 +32,5 @@ Exemplos aprovados:
 
 ### Referência de letras
 As letras completas de todas as músicas estão em:
-`ARCHIVE_01_CATALOGO_LETRAS_PROMPTS_FULL.md`
+`letras.md`
 Usar como base para entender a personalidade de cada personagem.

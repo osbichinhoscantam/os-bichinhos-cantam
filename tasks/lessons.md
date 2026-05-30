@@ -1,3 +1,8 @@
+---
+ingestado: true
+data_ingestion: 2026-05-08
+---
+
 # lessons.md — Preferências e aprendizados do site Os Bichinhos Cantam
 
 ---
