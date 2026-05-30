@@ -279,12 +279,11 @@ h3 {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url("assets/hero.jpg");
+  background-image: url("assets/feed-5bichinhos-murilo.jpg");
   background-size: cover;
-  /* Zoom no canto inferior-direito: corta título gravado na imagem; foco em personagens. */
-  background-position: 88% 100%;
-  transform: scale(1.55);
-  transform-origin: 88% 100%;
+  background-position: 58% 42%;
+  transform: none;
+  transform-origin: center;
   z-index: -3;
 }
 
@@ -376,7 +375,7 @@ h3 {
 .hero-murilo-panel .live-links-note {
   text-align: center;
 }
-.hero-murilo-gif-wrap {
+.hero-murilo-cover-wrap {
   margin: 14px auto 16px;
   width: min(100%, 200px);
   aspect-ratio: 1;
@@ -385,32 +384,26 @@ h3 {
   border: 1px solid rgba(200, 118, 82, 0.35);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
 }
-.hero-murilo-gif,
-.hero-murilo-gif-still {
+.hero-murilo-cover {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.hero-murilo-gif-still {
-  display: none;
-}
 
 .hero-cover-card--murilo {
+  width: clamp(168px, 22vw, 260px);
+  align-self: center;
   border-color: rgba(200, 118, 82, 0.28);
 }
-.hero-cover-card--murilo .hero-cover-video,
-.hero-cover-card--murilo .hero-cover-still {
+.hero-cover-card--murilo .hero-cover-video {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 9 / 16;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   border-radius: calc(var(--radius-lg) - 10px);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35) inset;
-}
-.hero-cover-still {
-  display: none;
 }
 
 .cta-row {
@@ -724,7 +717,7 @@ h3 {
   border-radius: var(--radius-lg);
   background:
     radial-gradient(ellipse 90% 55% at 50% 20%, rgba(255, 211, 106, 0.14) 0%, transparent 72%),
-    linear-gradient(165deg, #241408 0%, #1a100a 52%, #140c08 100%);
+    rgba(7, 9, 31, 0.65);
   animation: live-glow 3.2s ease-in-out infinite;
 }
 
@@ -880,13 +873,13 @@ h3 {
 .launch-spotlight-inner {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(200, 118, 82, 0.42);
+  border: 1px solid rgba(255, 211, 106, 0.45);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
   padding: clamp(22px, 4vw, 34px);
   background:
-    radial-gradient(ellipse 90% 55% at 50% 20%, rgba(200, 118, 82, 0.16) 0%, transparent 72%),
-    linear-gradient(165deg, #241408 0%, #1a100a 52%, #140c08 100%);
+    radial-gradient(ellipse 90% 55% at 50% 20%, rgba(255, 211, 106, 0.14) 0%, transparent 72%),
+    rgba(7, 9, 31, 0.72);
 }
 .launch-spotlight--murilo .launch-spotlight-inner {
   animation: murilo-glow 3.2s ease-in-out infinite;
@@ -908,10 +901,10 @@ h3 {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid rgba(200, 118, 82, 0.35);
+  border: 1px solid rgba(255, 230, 180, 0.18);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
   aspect-ratio: 1;
-  background: rgba(28, 16, 10, 0.5);
+  background: rgba(9, 13, 56, 0.55);
 }
 .launch-spotlight-video,
 .launch-spotlight-still {
@@ -944,12 +937,25 @@ h3 {
 .launch-spotlight--murilo .live-sub span {
   color: #f0b080;
 }
-.launch-spotlight--vol1 .launch-spotlight-inner {
+.launch-spotlight--vol1 .launch-spotlight-inner,
+.launch-spotlight--vol1 .launch-spotlight-inner.countdown-live {
   border-color: rgba(255, 211, 106, 0.45);
   background:
     radial-gradient(ellipse 90% 55% at 50% 20%, rgba(255, 211, 106, 0.14) 0%, transparent 72%),
-    linear-gradient(165deg, #241408 0%, #1a100a 52%, #140c08 100%);
+    rgba(7, 9, 31, 0.72);
   animation: live-glow 3.2s ease-in-out infinite;
+}
+.launch-spotlight--vol1 .live-sub {
+  color: #e8dcff;
+}
+.launch-spotlight--vol1 .live-sub span {
+  color: var(--moon-gold);
+}
+.launch-spotlight--vol1 .live-links-note a {
+  color: #c7b8ee;
+}
+.launch-spotlight--vol1 .live-links-note a:hover {
+  color: var(--moon-gold);
 }
 .launch-spotlight-content {
   text-align: left;
@@ -987,10 +993,6 @@ h3 {
   .live-title { background-position: 0% center; }
   .launch-spotlight-video { display: none; }
   .launch-spotlight-still { opacity: 1; position: static; }
-  .hero-cover-video { display: none; }
-  .hero-cover-still { display: block; }
-  .hero-murilo-gif { display: none; }
-  .hero-murilo-gif-still { display: block; }
 }
 
 @media (max-width: 460px) {
@@ -1945,8 +1947,8 @@ main#conteudo > section#personagens.section + section.family {
     min-height: 620px;
   }
   .hero-bg {
-    background-image: url("assets/hero-mobile.png");
-    background-position: 50% 22%;
+    background-image: url("assets/feed-5bichinhos-murilo.jpg");
+    background-position: 50% 38%;
     transform: none;
     transform-origin: center;
   }
@@ -1966,7 +1968,7 @@ main#conteudo > section#personagens.section + section.family {
   .hero-cover-card {
     display: none;
   }
-  .hero-murilo-gif-wrap {
+  .hero-murilo-cover-wrap {
     width: min(100%, 240px);
   }
 
