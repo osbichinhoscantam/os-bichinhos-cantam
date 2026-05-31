@@ -32,6 +32,10 @@
   <meta name="twitter:description" content="Murilo chegou! Ouça no Spotify. Música infantil brasileira para crianças de 2 a 5 anos." />
   <meta name="twitter:image" content="https://osbichinhoscantam.github.io/os-bichinhos-cantam/assets/murilo-cover.jpg" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" />
   <link rel="preload" as="image" href="assets/feed-5bichinhos-murilo.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="styles.css" />
 
@@ -299,6 +303,7 @@
         <p class="section-lede">Ouça Murilo, dê play nas prévias e explore a turma.</p>
       </div>
 
+      <div class="section-panel">
       <div class="cast-group" aria-labelledby="murilo-group-title">
         <div class="cast-group-header">
           <span class="cast-tag cast-tag-live">Novidade · Vol. 2</span>
@@ -506,6 +511,7 @@
           </a>
         </div>
       </div>
+      </div>
     </section>
 
     <section class="section family" aria-labelledby="family-title">
@@ -639,20 +645,58 @@
     </section>
 
     <section class="section visual-strip" aria-label="Arte panorâmica do projeto">
-      <img src="assets/banner-wide.jpg" alt="Banner panorâmico de Os Bichinhos Cantam Vol. 1, com os quatro personagens em um campo noturno estrelado." width="1600" height="436" loading="lazy" decoding="async" />
+      <div class="visual-strip-frame">
+        <img src="assets/banner-wide.jpg" alt="Banner panorâmico de Os Bichinhos Cantam Vol. 1, com os quatro personagens em um campo noturno estrelado." width="1600" height="436" loading="lazy" decoding="async" />
+      </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
+      <span class="footer-mark" aria-hidden="true">
+        <svg class="footer-mark-moon" width="32" height="32" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+          <use href="#i-moon-brand"/>
+        </svg>
+      </span>
       <p class="footer-brand">Os Bichinhos Cantam</p>
-      <p class="footer-tag">Música infantil brasileira · Murilo no ar · Vol. 1 completo</p>
+      <p class="footer-tag">Música infantil brasileira · <span class="footer-tag-accent">Murilo no ar</span> · Vol. 1 completo</p>
+      <hr class="footer-divider" aria-hidden="true" />
       <p class="footer-copy">© <span id="ano"></span> Os Bichinhos Cantam · Criação: <a class="footer-author" href="https://instagram.com/drcapitulinojr" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Capitulino Jr">Capitulino Jr</a> · Todos os direitos reservados.</p>
     </div>
   </footer>
 
   <script>
     document.getElementById("ano").textContent = new Date().getFullYear();
+
+    // Header scroll + nav ativa por seção visível
+    (function () {
+      const header = document.querySelector(".site-header");
+      if (header) {
+        const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+      }
+
+      const navLinks = [...document.querySelectorAll(".nav-links a[href^='#']")];
+      const sections = navLinks
+        .map((a) => document.querySelector(a.getAttribute("href")))
+        .filter(Boolean);
+      if (!sections.length) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const id = entry.target.id;
+            navLinks.forEach((a) => {
+              a.classList.toggle("is-active", a.getAttribute("href") === "#" + id);
+            });
+          });
+        },
+        { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
+      );
+      sections.forEach((s) => observer.observe(s));
+    })();
 
     // Vol. 1 - prévias nos cards desativadas pós-lançamento
     (function () {

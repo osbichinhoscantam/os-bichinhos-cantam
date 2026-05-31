@@ -84,6 +84,34 @@ body {
   line-height: 1.5;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+  background-image:
+    radial-gradient(1.5px 1.5px at 8% 12%, rgba(240, 176, 128, 0.35) 50%, transparent 50%),
+    radial-gradient(2px 2px at 22% 68%, rgba(255, 211, 106, 0.28) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 38% 24%, rgba(228, 145, 102, 0.32) 50%, transparent 50%),
+    radial-gradient(2px 2px at 55% 82%, rgba(255, 138, 36, 0.22) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 71% 18%, rgba(240, 176, 128, 0.3) 50%, transparent 50%),
+    radial-gradient(2px 2px at 88% 44%, rgba(255, 211, 106, 0.25) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 15% 88%, rgba(200, 118, 82, 0.28) 50%, transparent 50%),
+    radial-gradient(2px 2px at 92% 78%, rgba(228, 145, 102, 0.22) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 48% 52%, rgba(255, 211, 106, 0.18) 50%, transparent 50%),
+    radial-gradient(2px 2px at 63% 38%, rgba(240, 176, 128, 0.24) 50%, transparent 50%);
+}
+
+.site-header,
+main,
+.footer {
+  position: relative;
+  z-index: 1;
 }
 
 a { color: inherit; }
@@ -132,6 +160,16 @@ img {
   -webkit-backdrop-filter: blur(18px);
   background: rgba(12, 8, 6, 0.82);
   border-bottom: 1px solid var(--line);
+  transition:
+    background 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.site-header.is-scrolled {
+  background: rgba(12, 8, 6, 0.94);
+  border-bottom-color: rgba(200, 118, 82, 0.32);
+  box-shadow: 0 8px 32px rgba(8, 4, 2, 0.45);
 }
 
 .nav {
@@ -189,9 +227,31 @@ img {
 }
 .nav-links a {
   text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
   transition: color 160ms ease;
 }
-.nav-links a:hover { color: var(--warm-cream); }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--murilo-accent-soft);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.nav-links a:hover,
+.nav-links a.is-active {
+  color: var(--warm-cream);
+}
+.nav-links a:hover::after,
+.nav-links a.is-active::after {
+  transform: scaleX(1);
+}
 
 main {
   width: min(var(--container), calc(100% - 2 * var(--container-pad)));
@@ -206,11 +266,26 @@ h1, h2, h3, h4, p, ul { margin-top: 0; }
 h1 {
   font-size: clamp(2.6rem, 7.5vw, 5.6rem);
   line-height: 0.94;
-  letter-spacing: -0.045em;
-  font-weight: 950;
+  letter-spacing: -0.05em;
+  font-weight: 900;
   margin-bottom: 22px;
-  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg,
+    var(--warm-cream) 0%,
+    #ffe9a8 38%,
+    var(--murilo-accent-soft) 72%,
+    var(--warm-cream) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 6px 30px rgba(0, 0, 0, 0.5));
   text-wrap: balance;
+  animation: hero-title-shimmer 6s linear infinite;
+}
+
+@keyframes hero-title-shimmer {
+  from { background-position: 0% center; }
+  to { background-position: 200% center; }
 }
 
 h2 {
@@ -282,9 +357,15 @@ h3 {
   background-image: url("assets/feed-5bichinhos-murilo.jpg");
   background-size: cover;
   background-position: 58% 42%;
-  transform: none;
+  transform: scale(1);
   transform-origin: center;
   z-index: -3;
+  animation: hero-drift 10s ease-in-out infinite alternate;
+}
+
+@keyframes hero-drift {
+  from { transform: scale(1); }
+  to { transform: scale(1.03); }
 }
 
 .hero-overlay {
@@ -293,10 +374,10 @@ h3 {
   background:
     linear-gradient(95deg,
       rgba(12, 8, 6, 0.98) 0%,
-      rgba(18, 12, 8, 0.96) 42%,
-      rgba(28, 16, 10, 0.78) 56%,
-      rgba(32, 18, 12, 0.32) 78%,
-      rgba(36, 20, 12, 0.12) 100%),
+      rgba(18, 12, 8, 0.94) 38%,
+      rgba(28, 16, 10, 0.62) 54%,
+      rgba(200, 118, 82, 0.12) 72%,
+      rgba(36, 20, 12, 0.08) 100%),
     linear-gradient(180deg,
       rgba(12, 8, 6, 0.35) 0%,
       rgba(12, 8, 6, 0.0) 38%,
@@ -662,9 +743,9 @@ h3 {
   width: 100%;
   max-width: 100%;
   font-size: clamp(0.8rem, 4.75vmin + 0.42rem, 2.35rem);
-  font-weight: 950;
+  font-weight: 900;
   line-height: 1;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.07em;
   font-variant-numeric: tabular-nums;
   text-align: center;
   background: linear-gradient(135deg, var(--moon-gold) 0%, var(--cta-orange) 100%);
@@ -724,7 +805,8 @@ h3 {
   border-radius: var(--radius-lg);
   background:
     radial-gradient(ellipse 90% 55% at 50% 20%, rgba(255, 211, 106, 0.14) 0%, transparent 72%),
-    rgba(7, 9, 31, 0.65);
+    radial-gradient(ellipse 70% 45% at 50% 100%, rgba(180, 85, 42, 0.12) 0%, transparent 55%),
+    var(--murilo-panel);
   animation: live-glow 3.2s ease-in-out infinite;
 }
 
@@ -789,8 +871,8 @@ h3 {
 .live-title {
   margin: 0 0 8px;
   font-size: clamp(1.55rem, 3.8vw, 2.1rem);
-  font-weight: 950;
-  letter-spacing: -0.03em;
+  font-weight: 900;
+  letter-spacing: -0.035em;
   line-height: 1.1;
   background: linear-gradient(90deg,
     #ffe9a8 0%,
@@ -886,7 +968,8 @@ h3 {
   padding: clamp(22px, 4vw, 34px);
   background:
     radial-gradient(ellipse 90% 55% at 50% 20%, rgba(255, 211, 106, 0.14) 0%, transparent 72%),
-    rgba(7, 9, 31, 0.72);
+    radial-gradient(ellipse 70% 45% at 50% 100%, rgba(180, 85, 42, 0.1) 0%, transparent 55%),
+    var(--murilo-panel);
 }
 .launch-spotlight--murilo .launch-spotlight-inner {
   animation: murilo-glow 3.2s ease-in-out infinite;
@@ -911,7 +994,7 @@ h3 {
   border: 1px solid rgba(255, 230, 180, 0.18);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
   aspect-ratio: 1;
-  background: rgba(9, 13, 56, 0.55);
+  background: var(--murilo-surface);
 }
 .launch-spotlight-video,
 .launch-spotlight-still {
@@ -948,21 +1031,22 @@ h3 {
 .launch-spotlight--vol1 .launch-spotlight-inner.countdown-live {
   border-color: rgba(255, 211, 106, 0.45);
   background:
-    radial-gradient(ellipse 90% 55% at 50% 20%, rgba(255, 211, 106, 0.14) 0%, transparent 72%),
-    rgba(7, 9, 31, 0.72);
+    radial-gradient(ellipse 90% 55% at 50% 20%, rgba(255, 211, 106, 0.16) 0%, transparent 72%),
+    radial-gradient(ellipse 70% 45% at 50% 100%, rgba(180, 85, 42, 0.1) 0%, transparent 55%),
+    var(--murilo-panel);
   animation: live-glow 3.2s ease-in-out infinite;
 }
 .launch-spotlight--vol1 .live-sub {
-  color: #e8dcff;
+  color: var(--murilo-text-soft);
 }
 .launch-spotlight--vol1 .live-sub span {
   color: var(--moon-gold);
 }
 .launch-spotlight--vol1 .live-links-note a {
-  color: #c7b8ee;
+  color: var(--murilo-muted);
 }
 .launch-spotlight--vol1 .live-links-note a:hover {
-  color: var(--moon-gold);
+  color: var(--murilo-accent-soft);
 }
 .launch-spotlight-content {
   text-align: left;
@@ -995,9 +1079,13 @@ h3 {
   .launch-spotlight--vol1 .launch-spotlight-inner,
   .hero-murilo-panel,
   .live-spark,
-  .live-title { animation: none; }
+  .live-title,
+  .hero-bg,
+  h1 { animation: none; }
   .live-spark { opacity: 0.5; }
   .live-title { background-position: 0% center; }
+  h1 { background-position: 0% center; }
+  body::before { opacity: 0.25; }
   .launch-spotlight-video { display: none; }
   .launch-spotlight-still { opacity: 1; position: static; }
 }
@@ -1032,7 +1120,8 @@ main#conteudo > section#personagens.section + section.family {
 .intro-panel,
 .about,
 .links,
-.family {
+.family,
+.section-panel {
   background: linear-gradient(145deg,
     rgba(240, 176, 128, 0.10) 0%,
     rgba(240, 176, 128, 0.04) 100%);
@@ -1041,6 +1130,14 @@ main#conteudo > section#personagens.section + section.family {
   box-shadow: var(--shadow-md);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+}
+
+.section-panel {
+  padding: clamp(22px, 3.5vw, 36px);
+}
+
+#personagens .section-heading {
+  margin-bottom: clamp(16px, 2.5vw, 22px);
 }
 
 /* Intro */
@@ -1058,6 +1155,12 @@ main#conteudo > section#personagens.section + section.family {
   object-fit: cover;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
+  border: 1px solid rgba(200, 118, 82, 0.28);
+  transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.intro-panel:hover img {
+  transform: scale(1.02);
 }
 
 .intro-panel p,
@@ -1193,9 +1296,9 @@ main#conteudo > section#personagens.section + section.family {
   font-weight: 900;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink);
-  background: linear-gradient(135deg, var(--moon-gold), var(--cta-orange));
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.32), 0 0 14px rgba(255, 211, 106, 0.28);
+  color: var(--warm-cream);
+  background: linear-gradient(135deg, var(--murilo-accent) 0%, #8b4518 100%);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.32), 0 0 14px rgba(200, 118, 82, 0.28);
 }
 
 .character-card {
@@ -1432,12 +1535,20 @@ main#conteudo > section#personagens.section + section.family {
 }
 
 .character-card-live {
+  border-top-width: 3px;
+  border-top-style: solid;
   transition:
     background 220ms ease,
     border-color 220ms ease,
     box-shadow 220ms ease,
     transform 220ms ease;
 }
+
+.character-card-live--edgar { border-top-color: rgba(168, 138, 118, 0.85); }
+.character-card-live--joao { border-top-color: rgba(135, 126, 138, 0.85); }
+.character-card-live--duda { border-top-color: rgba(110, 148, 118, 0.85); }
+.character-card-live--raquel { border-top-color: rgba(205, 124, 92, 0.85); }
+.character-card-live--murilo { border-top-color: rgba(228, 145, 102, 0.9); }
 
 .character-card-live:hover,
 .character-card-live:focus-within {
@@ -1482,7 +1593,20 @@ main#conteudo > section#personagens.section + section.family {
 }
 
 .character-grid-murilo {
-  grid-template-columns: minmax(260px, 340px);
+  grid-template-columns: minmax(280px, 380px);
+  justify-content: center;
+}
+
+.character-grid-murilo .character-card-live--murilo {
+  border-color: rgba(200, 118, 82, 0.42);
+  box-shadow: var(--shadow-md), 0 0 36px rgba(200, 118, 82, 0.22);
+}
+
+.character-card-teaser:hover,
+.character-card-teaser:focus-within {
+  border-color: rgba(200, 118, 82, 0.45);
+  box-shadow: var(--shadow-md), 0 0 24px rgba(200, 118, 82, 0.18);
+  transform: translateY(-3px);
 }
 
 .character-card p {
@@ -1591,6 +1715,16 @@ main#conteudo > section#personagens.section + section.family {
   flex-direction: row;
   align-items: center;
   gap: 12px;
+  transition:
+    transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.stat:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-sm);
 }
 
 .stat-icon {
@@ -1599,8 +1733,8 @@ main#conteudo > section#personagens.section + section.family {
   border-radius: 10px;
   display: inline-grid;
   place-items: center;
-  background: rgba(255, 211, 106, 0.14);
-  border: 1px solid rgba(255, 211, 106, 0.28);
+  background: linear-gradient(135deg, rgba(255, 211, 106, 0.22) 0%, rgba(200, 118, 82, 0.18) 100%);
+  border: 1px solid rgba(255, 211, 106, 0.32);
   color: var(--moon-gold);
   flex-shrink: 0;
 }
@@ -1666,6 +1800,12 @@ main#conteudo > section#personagens.section + section.family {
   grid-template-columns: 130px 1fr;
   gap: 12px;
   align-items: baseline;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(240, 176, 128, 0.12);
+}
+.about-meta > div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 .about-meta dt {
   font-size: 0.72rem;
@@ -1687,15 +1827,31 @@ main#conteudo > section#personagens.section + section.family {
   padding: 0;
   margin: 0;
 }
+.visual-strip-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+}
+.visual-strip-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(12, 8, 6, 0.35) 0%, transparent 12%, transparent 88%, rgba(12, 8, 6, 0.35) 100%),
+    linear-gradient(180deg, rgba(12, 8, 6, 0.2) 0%, transparent 18%, transparent 82%, rgba(12, 8, 6, 0.25) 100%);
+}
 .visual-strip img {
   width: 100%;
   height: auto;
   aspect-ratio: 1600 / 436;
   object-fit: cover;
   display: block;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-md);
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
 }
 
 /* Links */
@@ -1713,7 +1869,7 @@ main#conteudo > section#personagens.section + section.family {
   min-height: 92px;
   padding: 18px 20px;
   border-radius: var(--radius-md);
-  background: rgba(255, 244, 212, 0.09);
+  background: rgba(255, 244, 212, 0.11);
   border: 1px solid var(--line);
   text-decoration: none;
   display: grid;
@@ -1721,10 +1877,10 @@ main#conteudo > section#personagens.section + section.family {
   align-items: center;
   gap: 14px;
   transition:
-    transform 200ms ease,
-    background 200ms ease,
-    border-color 200ms ease,
-    box-shadow 200ms ease;
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
 }
 .link-icon {
   width: 42px;
@@ -1862,7 +2018,7 @@ main#conteudo > section#personagens.section + section.family {
 }
 
 .link-platform {
-  font-weight: 760;
+  font-weight: 800;
   color: var(--warm-cream);
   font-size: 1.08rem;
   letter-spacing: -0.01em;
@@ -1885,10 +2041,24 @@ main#conteudo > section#personagens.section + section.family {
 .footer-inner {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 6px;
 }
+.footer-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+.footer-mark-moon {
+  width: 32px;
+  height: 32px;
+  color: var(--moon-gold);
+  fill: currentColor;
+  filter: drop-shadow(0 0 12px rgba(255, 211, 106, 0.42));
+}
 .footer-brand {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.05rem;
   color: var(--warm-cream);
   margin: 0;
@@ -1900,10 +2070,26 @@ main#conteudo > section#personagens.section + section.family {
   margin: 0;
   font-size: 0.92rem;
 }
+.footer-tag-accent {
+  color: var(--murilo-accent-soft);
+}
+.footer-divider {
+  width: min(280px, 70%);
+  height: 2px;
+  border: 0;
+  margin: 14px 0 10px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--murilo-accent) 20%,
+    var(--moon-gold) 50%,
+    var(--murilo-accent) 80%,
+    transparent 100%);
+  opacity: 0.85;
+}
 .footer-copy {
   color: var(--muted);
   font-size: 0.85rem;
-  margin: 8px 0 0;
+  margin: 0;
 }
 
 .footer-author {
@@ -1920,6 +2106,12 @@ main#conteudo > section#personagens.section + section.family {
 /* =========================================================
    Responsive
    ========================================================= */
+@media (min-width: 769px) {
+  .hero-murilo-cover-wrap {
+    display: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .character-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2003,13 +2195,34 @@ main#conteudo > section#personagens.section + section.family {
   :root { --container-pad: 16px; }
 
   .nav-links {
-    justify-content: space-between;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     gap: 8px;
-    font-size: 0.88rem;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    padding-bottom: 4px;
   }
+  .nav-links::-webkit-scrollbar { display: none; }
   .nav-links a {
-    flex: 1;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(240, 176, 128, 0.08);
+    border: 1px solid rgba(240, 176, 128, 0.16);
+    font-size: 0.86rem;
     text-align: center;
+  }
+  .nav-links a::after { display: none; }
+  .nav-links a.is-active {
+    background: rgba(200, 118, 82, 0.22);
+    border-color: rgba(200, 118, 82, 0.42);
+    color: var(--warm-cream);
   }
 
   .hero {
@@ -2059,7 +2272,7 @@ main#conteudo > section#personagens.section + section.family {
     font-size: 0.82rem;
   }
 
-  .visual-strip img {
+  .visual-strip-frame {
     border-radius: 20px;
   }
 }
@@ -2085,7 +2298,11 @@ main#conteudo > section#personagens.section + section.family {
   .character-card:hover,
   .character-card-live:hover,
   .character-card-live:focus-within,
-  .link-card:hover {
+  .character-card-teaser:hover,
+  .character-card-teaser:focus-within,
+  .link-card:hover,
+  .stat:hover,
+  .intro-panel:hover img {
     transform: none;
   }
 
