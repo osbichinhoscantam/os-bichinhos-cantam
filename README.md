@@ -5,7 +5,7 @@ data_ingestion: 2026-05-08
 
 # Os Bichinhos Cantam — Site oficial
 
-Landing estática do projeto brasileiro de música infantil **Os Bichinhos Cantam**, com Edgar, João, Duda e Raquel. Estado atual: pré-lançamento do Vol. 1 em 12/05/2026.
+Landing estática do projeto brasileiro de música infantil **Os Bichinhos Cantam**, com Edgar, João, Duda e Raquel. Estado atual (02/09/2026): Vol. 1 lançado em 12/05/2026; single do Murilo no ar desde 08/2026; single **"Leonardo, o Leopardo"** em pré-save, lançamento em 11/09/2026.
 
 - **URL oficial:** https://osbichinhoscantam.github.io/os-bichinhos-cantam/
 - **Hospedagem:** GitHub Pages (estático, sem backend)
@@ -94,7 +94,7 @@ Cada `git push` para `main` republica o site automaticamente em ~1 minuto.
 - [ ] Links externos com `target="_blank" rel="noopener noreferrer"`.
 - [ ] Site abre corretamente no celular (testar 360px e 390px).
 - [ ] Em pré-lançamento, não usar “já no ar”, “ouvir agora” ou links de faixa como se o EP já estivesse disponível.
-- [ ] Link principal de pré-lançamento leva para o Spotify (álbum Vol. 1), não para DistroKid/HyperFollow.
+- [ ] Link de faixa **já lançada** leva para o Spotify. Link de faixa **ainda não lançada** leva para o HyperFollow do DistroKid, que é a página de pré-save (corrigido em 02/09/2026: a regra antiga mandava o contrário, e foi escrita em maio para o pré-lançamento do Vol. 1, quando não havia pré-save aberto).
 - [ ] Links Spotify/Apple em pré-lançamento levam para páginas de artista, não para botões “ouvir agora”.
 
 ## Segurança — repositório público
