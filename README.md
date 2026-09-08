@@ -7,7 +7,7 @@ data_ingestion: 2026-05-08
 
 Landing estática do projeto brasileiro de música infantil **Os Bichinhos Cantam**, com Edgar, João, Duda e Raquel. Estado atual (02/09/2026): Vol. 1 lançado em 12/05/2026; single do Murilo no ar desde 08/2026; single **"Leonardo, o Leopardo"** em pré-save, lançamento em 11/09/2026.
 
-- **URL oficial:** https://osbichinhoscantam.github.io/os-bichinhos-cantam/
+- **URL oficial:** https://osbichinhoscantam.com.br/
 - **Hospedagem:** GitHub Pages (estático, sem backend)
 - **Stack:** HTML + CSS, sem frameworks, sem JS pesado.
 
@@ -71,8 +71,8 @@ Sobrescreva o arquivo correspondente em `/assets/` mantendo o **mesmo nome** e *
 
 ### Validar sitemap e robots
 
-- Abrir `https://osbichinhoscantam.github.io/os-bichinhos-cantam/sitemap.xml`
-- Abrir `https://osbichinhoscantam.github.io/os-bichinhos-cantam/robots.txt`
+- Abrir `https://osbichinhoscantam.com.br/sitemap.xml`
+- Abrir `https://osbichinhoscantam.com.br/robots.txt`
 - Atualizar `<lastmod>` em `sitemap.xml` ao publicar mudanças relevantes.
 
 ### Deploy via GitHub Pages
@@ -80,7 +80,7 @@ Sobrescreva o arquivo correspondente em `/assets/` mantendo o **mesmo nome** e *
 1. Branch publicada: `main`.
 2. Pasta: raiz `/`.
 3. Settings → Pages → Source: `Deploy from a branch` → `main` → `/ (root)`.
-4. URL final: `https://osbichinhoscantam.github.io/os-bichinhos-cantam/`.
+4. URL final: `https://osbichinhoscantam.com.br/`.
 
 Cada `git push` para `main` republica o site automaticamente em ~1 minuto.
 
@@ -112,7 +112,7 @@ O repositório é público porque o site é 100% estático.
 
 ## SEO / Search Console
 
-- Propriedade Search Console: `https://osbichinhoscantam.github.io/os-bichinhos-cantam/`
+- Propriedade Search Console: `https://osbichinhoscantam.com.br/`
 - Sitemap enviado: `/sitemap.xml`
 - Verificação por arquivo HTML: `googlec72d03a0d08176a6.html`
 

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://osbichinhoscantam.github.io/os-bichinhos-cantam/sitemap.xml
+Sitemap: https://osbichinhoscantam.com.br/sitemap.xml
