@@ -1,0 +1,27 @@
+# macOS / Windows
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Build local do Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Segredos e ambiente - nunca versionar
+.env
+.env.*
+
+# Sobras de edicao e ferramentas
+*.bak
+*.tmp
+*.orig
+*.rej
+*.map
+*.log
+
+# Ferramentas de agente (estado local, nao e conteudo do site)
+.claude/
