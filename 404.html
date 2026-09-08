@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Página não encontrada | Os Bichinhos Cantam</title>
+  <meta name="description" content="Esta página não existe no site de Os Bichinhos Cantam. Volte para a página inicial." />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="author" content="Os Bichinhos Cantam" />
+  <meta name="theme-color" content="#0c0806" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- SVG sprite: só os ícones usados nesta página -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7"/>
+      </symbol>
+      <symbol id="i-moon-brand" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <style>
+    .notfound-panel {
+      text-align: center;
+      margin-top: clamp(28px, 6vw, 64px);
+      margin-bottom: clamp(28px, 6vw, 64px);
+    }
+    .notfound-code {
+      font-size: clamp(3.4rem, 12vw, 6.4rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin: 0 0 10px;
+      color: var(--moon-gold);
+      text-shadow: 0 0 38px rgba(255, 211, 106, 0.35);
+    }
+    .notfound-panel .eyebrow { margin-bottom: 6px; }
+    .notfound-panel h1 {
+      font-size: clamp(1.75rem, 3.6vw, 2.85rem);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      font-weight: 700;
+      margin-bottom: 14px;
+      animation: none;
+    }
+    .notfound-lede {
+      max-width: 46ch;
+      margin: 0 auto 26px;
+      color: var(--text-soft);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      text-wrap: pretty;
+    }
+    .notfound-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Menu principal">
+      <a class="brand" href="/" aria-label="Os Bichinhos Cantam - página inicial">
+        <span class="brand-mark" aria-hidden="true">
+          <svg class="brand-mark-moon" width="28" height="28" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+            <use href="#i-moon-brand"/>
+          </svg>
+        </span>
+        <span class="brand-name">Os Bichinhos Cantam</span>
+      </a>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <section class="section section-panel notfound-panel" aria-labelledby="notfound-title">
+      <p class="notfound-code" aria-hidden="true">404</p>
+      <p class="eyebrow">Página não encontrada</p>
+      <h1 id="notfound-title">Esse bichinho se escondeu</h1>
+      <p class="notfound-lede">
+        A página que você procurou não existe aqui, ou mudou de lugar.
+        Volte para o início e siga o som da turma.
+      </p>
+      <div class="notfound-actions">
+        <a class="button ghost" href="/">
+          Voltar para a página inicial
+          <svg class="btn-svg btn-svg-arrow" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-mark" aria-hidden="true">
+        <svg class="footer-mark-moon" width="32" height="32" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+          <use href="#i-moon-brand"/>
+        </svg>
+      </span>
+      <p class="footer-brand">Os Bichinhos Cantam</p>
+      <p class="footer-tag">osbichinhoscantam.com.br</p>
+    </div>
+  </footer>
+</body>
+</html>
