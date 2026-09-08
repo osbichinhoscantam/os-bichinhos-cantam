@@ -1,0 +1,26 @@
+# Os Bichinhos Cantam - build do GitHub Pages (Jekyll)
+#
+# O site e uma landing estatica: index.html, styles.css, assets/ e os arquivos
+# de SEO (robots.txt, sitemap.xml, CNAME, googlec72d03a0d08176a6.html).
+# Tudo que esta em "exclude" e documento interno de trabalho e nao pode virar
+# pagina publica. Sem esta lista o Jekyll converte cada .md do repositorio em
+# HTML e publica /CLAUDE.html, /README.html e /tasks/lessons.html.
+
+exclude:
+  # --- documentos internos do repositorio ---
+  - CLAUDE.md          # instrucoes internas do agente; nao e conteudo de site
+  - README.md          # doc de manutencao do repo; nao e pagina publica
+  - tasks/             # notas de trabalho internas (tasks/lessons.md)
+  - .claude/           # memoria e config do agente; nunca publica
+
+  # --- defaults do Jekyll, repetidos porque "exclude" substitui a lista padrao ---
+  - Gemfile            # sem ele, um Gemfile futuro seria copiado pro site
+  - Gemfile.lock       # idem
+  - gemfiles/          # idem
+  - node_modules/      # dependencias de build nunca vao pro site
+  - vendor/bundle/     # idem
+  - vendor/cache/      # idem
+  - vendor/gems/       # idem
+  - vendor/ruby/       # idem
+  - .sass-cache/       # cache de build
+  - .jekyll-cache/     # cache de build
