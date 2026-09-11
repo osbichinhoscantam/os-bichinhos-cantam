@@ -1459,6 +1459,29 @@ main#conteudo > section#personagens.section + section.family {
 }
 
 /* Murilo — âmbar queimado / outono */
+#personagens .character-card-live--leonardo .preview-toggle {
+  border: 1px solid rgba(255, 211, 106, 0.52);
+  background: rgba(38, 28, 12, 0.52);
+  color: rgba(255, 238, 205, 0.96);
+}
+#personagens .character-card-live--leonardo .preview-toggle .char-preview-label {
+  color: rgba(250, 220, 160, 0.95);
+}
+#personagens .character-card-live--leonardo .preview-toggle:hover,
+#personagens .character-card-live--leonardo .preview-toggle:focus-visible {
+  background: rgba(255, 211, 106, 0.22);
+  border-color: rgba(255, 219, 130, 0.68);
+  color: var(--warm-cream);
+}
+#personagens .character-card-live--leonardo.is-playing .preview-toggle {
+  background: linear-gradient(135deg, rgba(255, 211, 106, 0.34) 0%, rgba(62, 46, 20, 0.92) 100%);
+  border-color: rgba(255, 219, 130, 0.72);
+  box-shadow: 0 0 0 1px rgba(255, 211, 106, 0.28), 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+#personagens .character-card-live--leonardo.is-playing .preview-toggle .char-preview-label {
+  color: var(--warm-cream);
+}
+
 #personagens .character-card-live--murilo .preview-toggle {
   border: 1px solid rgba(200, 118, 82, 0.52);
   background: rgba(36, 22, 14, 0.52);
