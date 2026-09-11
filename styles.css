@@ -546,62 +546,6 @@ h3 {
     0 0 44px rgba(30, 215, 96, 0.48),
     0 18px 38px rgba(0, 0, 0, 0.36);
 }
-
-/* Alinhado aos .char-listen dos cards: dourado em repouso → verde Spotify no hover */
-.button-presave {
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  background:
-    linear-gradient(180deg,
-      rgba(255, 255, 255, 0.18) 0%,
-      rgba(255, 255, 255, 0) 50%),
-    linear-gradient(160deg, #ffe566 0%, var(--moon-gold) 40%, var(--cta-orange) 100%);
-  color: var(--ink);
-  border: 1px solid rgba(255, 210, 80, 0.55);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.5) inset,
-    0 -1px 0 rgba(0, 0, 0, 0.12) inset,
-    0 8px 20px rgba(12, 6, 4, 0.48),
-    0 0 0 1px rgba(255, 200, 80, 0.2);
-  transition:
-    transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 180ms ease,
-    background 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease,
-    filter 180ms ease;
-}
-
-.button-presave:hover {
-  filter: none;
-  background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
-  color: #fff;
-  border-color: transparent;
-  box-shadow:
-    0 0 14px rgba(30, 215, 96, 0.4),
-    0 12px 28px rgba(0, 0, 0, 0.32);
-}
-
-.button-presave:focus-visible {
-  outline: none;
-  background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
-  color: #fff;
-  border-color: transparent;
-  box-shadow:
-    0 0 14px rgba(30, 215, 96, 0.45),
-    0 12px 28px rgba(0, 0, 0, 0.32),
-    0 0 0 3px rgba(255, 211, 106, 0.45);
-}
-
-.cta-row .button-presave .btn-svg {
-  opacity: 0.75;
-}
-
-.cta-row .button-presave:hover .btn-svg,
-.cta-row .button-presave:focus-visible .btn-svg {
-  opacity: 1;
-}
-
 .button-apple {
   background: linear-gradient(135deg, #fa5b8b 0%, #fc6d6d 100%);
   color: #fff;
@@ -1055,6 +999,8 @@ h3 {
   .countdown-live,
   .launch-spotlight-inner,
   .launch-spotlight--vol1 .launch-spotlight-inner,
+  .launch-spotlight--vol1 .launch-spotlight-inner.countdown-live,
+  .launch-spotlight--murilo .launch-spotlight-inner,
   .hero-launch-panel,
   .live-spark,
   .live-title,
