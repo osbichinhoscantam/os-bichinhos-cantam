@@ -5,7 +5,7 @@ data_ingestion: 2026-05-08
 
 # Os Bichinhos Cantam — Site oficial
 
-Landing estática do projeto brasileiro de música infantil **Os Bichinhos Cantam**, com Edgar, João, Duda e Raquel. Estado atual (02/09/2026): Vol. 1 lançado em 12/05/2026; single do Murilo no ar desde 08/2026; single **"Leonardo, o Leopardo"** em pré-save, lançamento em 11/09/2026.
+Landing estática do projeto brasileiro de música infantil **Os Bichinhos Cantam**, com Edgar, João, Duda e Raquel. Estado atual (11/09/2026): Vol. 1 lançado em 12/05/2026; single do Murilo no ar desde 05/2026; single **"Leonardo, o Leopardo"** lançado em 11/09/2026 e em destaque no hero.
 
 - **URL oficial:** https://osbichinhoscantam.com.br/
 - **Hospedagem:** GitHub Pages (estático, sem backend)

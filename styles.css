@@ -444,35 +444,35 @@ h3 {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35) inset;
 }
 
-.hero-murilo-panel {
+.hero-launch-panel {
   position: relative;
   overflow: hidden;
   margin-top: 8px;
   text-align: center;
 }
-.hero-murilo-panel .live-cta-row {
+.hero-launch-panel .live-cta-row {
   justify-content: center;
 }
-.hero-murilo-panel .live-links-note {
+.hero-launch-panel .live-links-note {
   text-align: center;
 }
-.hero-murilo-cover-wrap {
+.hero-launch-cover-wrap {
   margin: 14px auto 16px;
   width: min(100%, 200px);
   aspect-ratio: 1;
   border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1px solid rgba(200, 118, 82, 0.35);
+  border: 1px solid rgba(255, 211, 106, 0.35);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
 }
-.hero-murilo-cover {
+.hero-launch-cover {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.hero-cover-card--murilo {
+.hero-cover-card--reel {
   flex: 0 0 auto;
   width: fit-content;
   max-width: min(48%, 500px);
@@ -481,9 +481,9 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-color: rgba(200, 118, 82, 0.28);
+  border-color: rgba(255, 211, 106, 0.28);
 }
-.hero-cover-card--murilo .hero-cover-video {
+.hero-cover-card--reel .hero-cover-video {
   width: auto;
   height: clamp(480px, 78vh, 760px);
   max-height: min(760px, calc(100vh - 160px));
@@ -815,27 +815,6 @@ h3 {
   50%       { box-shadow: var(--shadow-sm), 0 0 42px rgba(255, 211, 106, 0.46); }
 }
 
-/* Hero #ouvir — prevalece sobre .countdown-live (Vol. 1 dourado) */
-.hero-murilo-panel.countdown-live {
-  border: 1px solid rgba(200, 118, 82, 0.48);
-  border-radius: var(--radius-lg);
-  background:
-    radial-gradient(ellipse 90% 55% at 50% 18%, rgba(228, 145, 102, 0.24) 0%, transparent 70%),
-    radial-gradient(ellipse 70% 45% at 50% 100%, rgba(180, 85, 42, 0.16) 0%, transparent 55%),
-    linear-gradient(165deg, #241408 0%, #1a100a 48%, #140c08 100%);
-  animation: murilo-glow 3.2s ease-in-out infinite;
-}
-.hero-murilo-panel .live-eyebrow {
-  color: #f0b080;
-  text-shadow: 0 0 18px rgba(200, 118, 82, 0.52);
-}
-.hero-murilo-panel .live-spark {
-  color: var(--murilo-accent-soft);
-}
-.hero-murilo-panel .live-sub span {
-  color: #f0b080;
-}
-
 /* Estrelinhas decorativas */
 .live-spark {
   position: absolute;
@@ -1013,8 +992,7 @@ h3 {
   color: #f0b080;
   text-shadow: 0 0 18px rgba(200, 118, 82, 0.52);
 }
-.launch-spotlight--murilo .live-title,
-.hero-murilo-panel .live-title {
+.launch-spotlight--murilo .live-title {
   color: var(--warm-cream);
   background: none;
   -webkit-background-clip: unset;
@@ -1077,7 +1055,7 @@ h3 {
   .countdown-live,
   .launch-spotlight-inner,
   .launch-spotlight--vol1 .launch-spotlight-inner,
-  .hero-murilo-panel,
+  .hero-launch-panel,
   .live-spark,
   .live-title,
   .hero-bg,
@@ -1592,14 +1570,19 @@ main#conteudo > section#personagens.section + section.family {
     linear-gradient(165deg, rgba(92, 52, 32, 0.9) 0%, rgba(12, 8, 6, 0.76) 100%);
 }
 
-.character-grid-murilo {
+.character-grid-solo {
   grid-template-columns: minmax(280px, 380px);
   justify-content: center;
 }
 
-.character-grid-murilo .character-card-live--murilo {
+.character-grid-solo .character-card-live--murilo {
   border-color: rgba(200, 118, 82, 0.42);
   box-shadow: var(--shadow-md), 0 0 36px rgba(200, 118, 82, 0.22);
+}
+
+.character-grid-solo .character-card-live--leonardo {
+  border-color: rgba(255, 211, 106, 0.42);
+  box-shadow: var(--shadow-md), 0 0 36px rgba(255, 211, 106, 0.20);
 }
 
 .character-card-teaser:hover,
@@ -2123,7 +2106,7 @@ main#conteudo > section#personagens.section + section.family {
    Responsive
    ========================================================= */
 @media (min-width: 769px) {
-  .hero-murilo-cover-wrap {
+  .hero-launch-cover-wrap {
     display: none;
   }
 }
@@ -2183,7 +2166,7 @@ main#conteudo > section#personagens.section + section.family {
   .hero-cover-card {
     display: none;
   }
-  .hero-murilo-cover-wrap {
+  .hero-launch-cover-wrap {
     width: min(100%, 240px);
   }
 
