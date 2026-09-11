@@ -365,7 +365,15 @@
             <img src="assets/leonardo.jpg" alt="Leonardo, leopardo amarelo-dourado de manchas pretas, sentado com olhar curioso." width="900" height="900" loading="lazy" decoding="async" />
             <div class="character-card-head">
               <h4>Leonardo</h4>
+              <button class="preview-toggle" type="button" data-preview-toggle aria-label="Tocar prévia de Leonardo, o Leopardo" aria-pressed="false">
+                <span class="preview-toggle-icon" aria-hidden="true"></span>
+                <span class="char-preview-label" aria-hidden="true">Escute a prévia</span>
+              </button>
             </div>
+            <audio preload="none" aria-label="Prévia de Leonardo, o Leopardo" data-preview-player hidden>
+              <source src="assets/audio/leonardo-previa-1.mp3" type="audio/mpeg" />
+              Seu navegador não suporta o player de áudio.
+            </audio>
             <p class="char-bio">O leopardo quietinho que aparece quando ninguém espera.</p>
             <a class="char-listen" href="https://open.spotify.com/track/1njzUK5UAFGTHJ7Y9V91SI" target="_blank" rel="noopener noreferrer" data-spotify-url="https://open.spotify.com/track/1njzUK5UAFGTHJ7Y9V91SI" aria-label="Ouvir Leonardo, o Leopardo no Spotify">
               <svg class="btn-svg char-listen-icon" aria-hidden="true" focusable="false"><use href="#i-spotify"/></svg>
