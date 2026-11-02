@@ -3,7 +3,7 @@ ingestado: true
 data_ingestion: 2026-05-08
 ---
 
-# Os Bichinhos Cantam — Contexto para o Claude
+# Os Bichinhos Cantam - Contexto para o Claude
 
 ## Descrições de personagens (cards)
 
@@ -19,7 +19,7 @@ Exemplos aprovados:
 ### Tom certo
 - Simples e afetivo
 - Infantil = simples + carinhoso (não = ilógico ou nonsense)
-- A piada já está no personagem — não forçar graça
+- A piada já está no personagem - não forçar graça
 - Sem ironia adulta
 - Sem elaboração desnecessária
 
